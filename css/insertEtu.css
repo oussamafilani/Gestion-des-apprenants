@@ -297,13 +297,42 @@ tr, td {
     order: 1;
   }
 }
+.insert-etu-container {
+  border-radius: 2px;
+  background-color: var(--white-color);
+  padding: 20px;
+  margin: 10% auto;
+  width: 44%;
+}
+.insert-etu-container input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+.insert-etu-container input[type=submit] {
+  background-color: var(--first-color);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.insert-etu-container input[type=submit]:hover {
+  background-color: var(--first-color-hover);
+}
+
 /*===== VARIABLES CSS =====*/
 :root {
   --header-height: 3rem;
   --nav-width: 68px;
   /*===== Colors =====*/
   --first-color: #6C63FF;
-  --first-color-hover:#6b63ffbd;
+  --first-color-hover:#32408f;
   --first-color-light: #c4c0d6;
   --white-color: #F7F6FB;
   /*===== Font and typography =====*/
@@ -329,38 +358,6 @@ body {
 
 a {
   text-decoration: none;
-}
-
-.insert-etu-container {
-  border-radius: 2px;
-  background-color: var(--white-color);
-  padding: 20px;
-  margin: 10% auto;
-  width: 44%;
-}
-
-input {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  margin-top: 6px;
-  margin-bottom: 16px;
-  resize: vertical;
-}
-
-input[type=submit] {
-  background-color: var(--first-color);
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-input[type=submit]:hover {
-  background-color: var(--first-color-hover);
 }
 
 /*# sourceMappingURL=insertEtu.css.map */

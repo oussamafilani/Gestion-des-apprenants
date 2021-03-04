@@ -304,7 +304,7 @@ tr, td {
   margin: 10% auto;
   width: 44%;
 }
-.insert-etu-container input {
+.insert-etu-container input, .insert-etu-container select {
   width: 100%;
   padding: 12px;
   border: 1px solid #ccc;

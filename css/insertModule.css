@@ -297,12 +297,42 @@ tr, td {
     order: 1;
   }
 }
+.insert-mod-container {
+  border-radius: 2px;
+  background-color: var(--white-color);
+  padding: 20px;
+  margin: 10% auto;
+  width: 44%;
+}
+.insert-mod-container input, .insert-mod-container select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+.insert-mod-container input[type=submit] {
+  background-color: var(--first-color);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.insert-mod-container input[type=submit]:hover {
+  background-color: var(--first-color-hover);
+}
+
 /*===== VARIABLES CSS =====*/
 :root {
   --header-height: 3rem;
   --nav-width: 68px;
   /*===== Colors =====*/
   --first-color: #6C63FF;
+  --first-color-hover:#32408f;
   --first-color-light: #c4c0d6;
   --white-color: #F7F6FB;
   /*===== Font and typography =====*/
@@ -330,51 +360,8 @@ a {
   text-decoration: none;
 }
 
-.etu-cart {
-  display: flex;
-  width: 60%;
-  background-color: #F5F5F5;
-  align-items: center;
-  margin: 0 auto;
+.insert-mod-container {
+  margin-bottom: 16%;
 }
 
-.etu-cart .etu-avatar {
-  flex: 40%;
-}
-
-.etu-cart .etu-avatar img {
-  max-width: 65%;
-  margin: 10%;
-}
-
-.etu-cart .etu-content {
-  flex: 60%;
-}
-
-@media only screen and (max-width: 1040px) and (max-width: 1000px) {
-  .etu-cart {
-    flex-direction: column;
-    flex-wrap: wrap;
-    width: 100%;
-  }
-
-  .etu-avatar {
-    flex: 100%;
-  }
-
-  .etu-avatar img {
-    max-width: 100%;
-  }
-
-  .etu-content {
-    flex: 100%;
-  }
-}
-.title-sec {
-  font-size: 1.5em;
-  margin: 0.5em 0 0.75em;
-  margin-top: 9%;
-  text-align: center;
-}
-
-/*# sourceMappingURL=etudiant.css.map */
+/*# sourceMappingURL=insertModule.css.map */

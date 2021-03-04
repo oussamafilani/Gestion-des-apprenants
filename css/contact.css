@@ -303,6 +303,7 @@ tr, td {
   --nav-width: 68px;
   /*===== Colors =====*/
   --first-color: #6C63FF;
+  --first-color-hover:#32408f;
   --first-color-light: #c4c0d6;
   --white-color: #F7F6FB;
   /*===== Font and typography =====*/
@@ -330,51 +331,12 @@ a {
   text-decoration: none;
 }
 
-.etu-cart {
-  display: flex;
-  width: 60%;
-  background-color: #F5F5F5;
-  align-items: center;
-  margin: 0 auto;
+.bg-image {
+  background-image: url("../img/background/background.png");
+  background-repeat: no-repeat;
+  height: auto;
+  background-size: cover;
+  width: 100%;
 }
 
-.etu-cart .etu-avatar {
-  flex: 40%;
-}
-
-.etu-cart .etu-avatar img {
-  max-width: 65%;
-  margin: 10%;
-}
-
-.etu-cart .etu-content {
-  flex: 60%;
-}
-
-@media only screen and (max-width: 1040px) and (max-width: 1000px) {
-  .etu-cart {
-    flex-direction: column;
-    flex-wrap: wrap;
-    width: 100%;
-  }
-
-  .etu-avatar {
-    flex: 100%;
-  }
-
-  .etu-avatar img {
-    max-width: 100%;
-  }
-
-  .etu-content {
-    flex: 100%;
-  }
-}
-.title-sec {
-  font-size: 1.5em;
-  margin: 0.5em 0 0.75em;
-  margin-top: 9%;
-  text-align: center;
-}
-
-/*# sourceMappingURL=etudiant.css.map */
+/*# sourceMappingURL=contact.css.map */

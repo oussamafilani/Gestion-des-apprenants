@@ -38,7 +38,7 @@
     <div class="l-navbar" id="nav-bar">
       <nav class="nav">
         <div>
-          <a href="#" class="nav__logo">
+          <a href="index.html" class="nav__logo">
             <!-- <i class="bx bx-layer nav__logo-icon"></i> -->
             <i class="bx bxs-home nav__logo-icon"></i>
             <span class="nav__logo-name">Academy Code</span>
@@ -165,6 +165,7 @@
         </tr>
       </tbody>
     </table>
+    <p style="text-align: center;">Nombre total des absences : 3</p>
     <!-- end  Absences Etudiant table -->
 
     <footer>

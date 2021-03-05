@@ -86,12 +86,11 @@
     <!-- start insert etudiant -->
     <div class="insert-mod-container">
       <form action="">
-        <h2>Creation d'une seance</h2>
+        <h2>Creation d'un module</h2>
 
         <label for="module">Module *</label>
         <input name="module" placeholder="module" type="text" />
         <input name="submit" type="submit" value="Ajouter" />
-
       </form>
     </div>
     <footer>

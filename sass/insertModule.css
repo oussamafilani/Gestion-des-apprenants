@@ -1,10 +1,45 @@
 /*===== GOOGLE FONTS =====*/
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
+/*===== VARIABLES CSS =====*/
+:root {
+  --header-height: 3rem;
+  --nav-width: 68px;
+  /*===== Colors =====*/
+  --first-color: #6C63FF;
+  --first-color-hover:#32408f;
+  --first-color-light: #c4c0d6;
+  --white-color: #F7F6FB;
+  /*===== Font and typography =====*/
+  --body-font: 'Nunito', sans-serif;
+  --normal-font-size: 1rem;
+  /*===== z index =====*/
+  --z-fixed: 100;
+}
+
+/*===== BASE =====*/
+*, ::before, ::after {
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  margin: var(--header-height) 0 0 0;
+  padding: 0;
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  transition: .5s;
+  background-color: black;
+}
+
+a {
+  text-decoration: none;
+}
+
 .btn-log {
   display: inline-block;
   text-decoration: none;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.7px;
   padding: 10px 25px;
   cursor: pointer;
@@ -25,19 +60,12 @@
   position: fixed;
   top: 0;
   left: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  align-items: center;
+  justify-content: space-between;
   padding: 0 1rem;
   background-color: var(--white-color);
   z-index: var(--z-fixed);
-  -webkit-transition: .5s;
   transition: .5s;
 }
 
@@ -50,12 +78,8 @@
 .header__img {
   width: 35px;
   height: 35px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
   border-radius: 50%;
   overflow: hidden;
 }
@@ -73,37 +97,23 @@
   height: 100vh;
   background-color: var(--first-color);
   padding: .5rem 1rem 0 0;
-  -webkit-transition: .5s;
   transition: .5s;
   z-index: var(--z-fixed);
 }
 
 .nav {
   height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  flex-direction: column;
+  justify-content: space-between;
   overflow: hidden;
 }
 
 .nav__logo, .nav__link {
-  display: -ms-grid;
   display: grid;
-  -ms-grid-columns: max-content max-content;
-      grid-template-columns: -webkit-max-content -webkit-max-content;
-      grid-template-columns: max-content max-content;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-column-gap: 1rem;
-          column-gap: 1rem;
+  grid-template-columns: max-content max-content;
+  align-items: center;
+  column-gap: 1rem;
   padding: .5rem 0 .5rem 1.5rem;
 }
 
@@ -125,7 +135,6 @@
   position: relative;
   color: var(--first-color-light);
   margin-bottom: 1.5rem;
-  -webkit-transition: .3s;
   transition: .3s;
 }
 
@@ -278,15 +287,9 @@ tr, td {
   padding: 25px 0;
   background-color: white;
   color: #000000;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .footer-con ul {
@@ -318,21 +321,15 @@ tr, td {
 }
 
 .footer-con .footer-row__1 {
-  -webkit-box-flex: 25%;
-      -ms-flex: 25%;
-          flex: 25%;
+  flex: 25%;
 }
 
 .footer-con .footer-row__2 {
-  -webkit-box-flex: 50%;
-      -ms-flex: 50%;
-          flex: 50%;
+  flex: 50%;
 }
 
 .footer-con .footer-row__3 {
-  -webkit-box-flex: 25%;
-      -ms-flex: 25%;
-          flex: 25%;
+  flex: 25%;
 }
 
 .footer-con .footer-row__3 .fab {
@@ -341,20 +338,13 @@ tr, td {
 
 @media screen and (max-width: 700px) {
   .footer-con {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: reverse;
-        -ms-flex-direction: column-reverse;
-            flex-direction: column-reverse;
+    flex-direction: column-reverse;
   }
   .footer-con .footer-row {
-    -webkit-box-flex: 90%;
-        -ms-flex: 90%;
-            flex: 90%;
+    flex: 90%;
   }
   .footer-con .footer-row__2 {
-    -webkit-box-ordinal-group: 2;
-        -ms-flex-order: 1;
-            order: 1;
+    order: 1;
   }
 }
 
@@ -371,8 +361,7 @@ tr, td {
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin-top: 6px;
   margin-bottom: 16px;
   resize: vertical;
@@ -389,42 +378,6 @@ tr, td {
 
 .insert-mod-container input[type="submit"]:hover {
   background-color: var(--first-color-hover);
-}
-
-/*===== VARIABLES CSS =====*/
-:root {
-  --header-height: 3rem;
-  --nav-width: 68px;
-  /*===== Colors =====*/
-  --first-color: #6C63FF;
-  --first-color-hover:#32408f;
-  --first-color-light: #c4c0d6;
-  --white-color: #F7F6FB;
-  /*===== Font and typography =====*/
-  --body-font: 'Nunito', sans-serif;
-  --normal-font-size: 1rem;
-  /*===== z index =====*/
-  --z-fixed: 100;
-}
-
-/*===== BASE =====*/
-*, ::before, ::after {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-body {
-  position: relative;
-  margin: var(--header-height) 0 0 0;
-  padding: 0 1rem;
-  font-family: var(--body-font);
-  font-size: var(--normal-font-size);
-  -webkit-transition: .5s;
-  transition: .5s;
-}
-
-a {
-  text-decoration: none;
 }
 
 .insert-mod-container {

@@ -32,3 +32,11 @@ function colorLink(){
     }
 }
 linkColor.forEach(l=> l.addEventListener('click', colorLink))
+
+
+linkActive = document.querySelector('.nav__link');
+
+
+window.onload = () => {
+    linkActive.classList.add('active');
+ }

@@ -22,54 +22,43 @@
     <title>Ajout Seance</title>
   </head>
   <body id="body-pd">
-    <header class="header" id="header">
-      <div class="header__toggle">
-        <i class="bx bx-menu" id="header-toggle"></i>
-      </div>
-
-      <div class="header__img">
-        <img src="img/logo/logo.png" alt="" />
-      </div>
-      <div>
-        <button class="btn-log">Log Out</button>
-      </div>
-    </header>
+  <?php include('header.php'); ?>
 
     <div class="l-navbar" id="nav-bar">
       <nav class="nav">
         <div>
-          <a href="index.html" class="nav__logo">
+          <a href="index.php" class="nav__logo">
             <i class="bx bxs-home nav__logo-icon"></i>
             <span class="nav__logo-name">Academy Code</span>
           </a>
 
           <div class="nav__list">
-            <a href="enseignant.html" class="nav__link">
+            <a href="enseignant.php" class="nav__link">
               <i class="bx bx-grid-alt nav__icon"></i>
               <span class="nav__name">Dashboard</span>
             </a>
 
-            <a href="insertEtu.html" class="nav__link">
+            <a href="insertEtu.php" class="nav__link">
               <i class="fas fa-user-plus nav__icon"></i>
               <span class="nav__name">Add Etudiant</span>
             </a>
 
-            <a href="insertModule.html" class="nav__link">
+            <a href="insertModule.php" class="nav__link">
               <i class="fas fa-book nav__icon"></i>
               <span class="nav__name">Add Module</span>
             </a>
 
-            <a href="insertSeance.html" class="nav__link active">
+            <a href="insertSeance.php" class="nav__link active">
               <i class="fas fa-pen nav__icon"></i>
               <span class="nav__name">Add Seance</span>
             </a>
 
-            <a href="gsNoteAbsence.html" class="nav__link">
+            <a href="gsNoteAbsence.php" class="nav__link">
               <i class="fas fa-tasks nav__icon"></i>
               <span class="nav__name">Note & Absences</span>
             </a>
 
-            <a href="contact.html" class="nav__link">
+            <a href="contact.php" class="nav__link">
               <i class="fas fa-user nav__icon"></i>
               <span class="nav__name">Contact</span>
             </a>
@@ -110,40 +99,7 @@
         <input id="btn" name="submit" type="submit" value="Ajouter" />
       </form>
     </div>
-    <footer>
-      <div class="footer-con">
-        <div class="footer-row footer-row__1">
-          <ul>
-            <li><a href="#">&#169; 2020 All Right reserved</a></li>
-          </ul>
-        </div>
-        <div class="footer-row footer-row__2">
-          <ul>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Disclaimer</a></li>
-            <li><a href="#">Terms and Condition</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Contact Us</a></li>
-          </ul>
-        </div>
-        <div class="footer-row footer-row__3">
-          <ul>
-            <li>
-              <a href="#"><i class="fab fa-facebook"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fab fa-instagram-square"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fab fa-twitter"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fab fa-youtube"></i></a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </footer>
+    <?php include('footer.php'); ?>
     <!--===== MAIN JS =====-->
     <script src="js/slider.js"></script>
   </body>

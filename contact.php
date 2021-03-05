@@ -21,7 +21,7 @@
   <div class="l-navbar" id="nav-bar">
     <nav class="nav">
       <div>
-        <a href="index.php" class="nav__logo active">
+        <a href="index.php" class="nav__logo">
           <i class="bx bxs-home nav__logo-icon"></i>
           <span class="nav__logo-name">Academy Code</span>
         </a>
@@ -52,7 +52,7 @@
             <span class="nav__name">Note & Absences</span>
           </a>
 
-          <a href="contact.php" class="nav__link">
+          <a href="contact.php" class="nav__link active">
             <i class="fas fa-user nav__icon"></i>
             <span class="nav__name">Contact</span>
           </a>

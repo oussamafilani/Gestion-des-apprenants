@@ -17,3 +17,90 @@
     width: 100%;
     
 }
+
+
+// start style
+.bg-image {
+    background-image: url("../img/background/background.png");
+    background-repeat: no-repeat;
+    height: auto;
+    background-size: cover;
+    width: 100%;
+    h2{
+        font-size:70px;
+        width:100%
+    }
+    p{
+        font-size:18px;
+      
+        width:100%;
+        padding: 0% 30% ;
+        
+    }
+   
+  }
+  .welcome{
+  
+      text-align: center;
+      margin: 0 auto;
+      padding: 0 0 3% 0;
+      img{
+      max-width: 100%;
+  }
+  
+  }
+  
+  .content-bg {
+      color: white;
+      margin: 0 auto;
+      .btn-hm{
+      @extend .btn-log;
+      
+      border-radius: 30px;
+      height:40px;
+      width:120px;
+  }
+  
+  
+  }
+  /***********************Media querry*************************/
+  @media only screen and (max-width: 1700px) {
+      .bg-image {
+    
+    h2{
+        font-size:46px;
+    }
+    p{
+        font-size:17px;
+    }
+   
+  }
+  }
+  
+  @media only screen and (max-width: 1220px) {
+      .bg-image {
+    
+    h2{
+        font-size:38px;
+    }
+    p{
+        font-size:17px;
+    }
+   
+  }
+  }
+  
+  @media only screen and (max-width: 600px) {
+      .bg-image {
+    
+    h2{
+        font-size:20px;
+    }
+    p{
+        font-size:10px;
+        padding: 0%;
+    }
+
+  }
+  }
+  

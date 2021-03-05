@@ -4,7 +4,9 @@
     </div>
 
     <div class="header__img">
-        <img src="img/logo/logo.png" alt="" />
+        <a href="index.php">
+            <img src="img/logo/logo.png" alt="" />
+        </a>
     </div>
     <div>
         <button class="btn-log">Log Out</button>

@@ -23,7 +23,7 @@
 
 
     <div class="login-bg-display">
-    <img src="img/logo/logo1.png" alt="">
+    <a href="index.php"><img src="img/logo/logo1.png" alt=""></a>
     </div>
     <div class="login-bg">
         <img src="img/background/loginbackground.png" alt="">
@@ -36,7 +36,7 @@
     </div>
     <div  class="logo-form" >
         <div class="logo">
-        <img src="img/logo/logo1.png" alt="">
+       <a href="index.php"><img src="img/logo/logo1.png" alt=""></a> 
     </div>
         <div class="login-form">
             <form action="">

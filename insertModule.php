@@ -30,6 +30,7 @@
   </div>
   <?php include('footer.php'); ?>
   <!--===== MAIN JS =====-->
+  <script src="js/active.js"></script>
   <script src="js/main.js"></script>
 </body>
 

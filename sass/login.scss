@@ -1,0 +1,144 @@
+/*===== GOOGLE FONTS =====*/
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+// @import 'mainroot';
+@import 'button';
+// @import 'header';
+@import 'table';
+// @import 'footer';
+@import 'formStyle';
+
+/*===== BASE =====*/
+*,::before,::after{
+    box-sizing: border-box;
+}
+
+body{
+    // padding: 0 1rem;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+}
+
+// start style 
+
+.login-bg img{
+    max-width: 65%;
+    position:absolute;
+    z-index: -1;
+}
+
+.form-container{
+    display: flex;
+    }
+.space{
+    flex: 50%;
+} 
+.logo-form{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    flex:50%;
+    width: 40vw;
+    height:Auto;
+    
+    }
+.logo-form img{
+    // max-width: 100%;
+    max-width:65%;
+    }
+    .logo{
+        align-self: center;
+    }
+
+.login-form{
+    @extend %form-style;
+    background-color: #F5F5F5;
+    width: 46vw;
+    margin: 0;
+    padding: 30px;
+    text-align: center;
+}
+
+.login-form h2{
+    text-align: left;
+}
+.login-form input{
+    width: 60%;
+}
+.login-form label{
+    margin-right: 10%;
+}
+
+.login-form input[type=submit]{
+    background-color: #6C63FF;
+    color:#F7F6FB ;
+    border-radius: 50px;
+    margin-top: 20px;
+}
+.login-form input[type=submit]:hover{
+    background-color: #000000;
+    color:#ffffff ;
+}
+
+.login-bg-display{
+    display: none;
+}
+
+
+@media screen and (max-width: 1000px) {
+   
+    .login-bg img{
+        // display: none;
+     }
+    .login-form{
+
+        width: 100%;
+        margin-bottom: 5%;
+        padding: 2%;
+        }
+
+            
+.login-form{
+    width: 100%;
+
+}
+.login-bg-display{
+    display:block;
+    text-align: center;
+}
+.login-bg-display img{
+    max-width: 40%;
+}
+
+.logo {
+    display: none;
+}
+
+.space{
+    display: none;
+} 
+
+.login-form input{
+    width: 100%;
+}
+.login-form label{
+    display: none;
+}
+
+   
+}
+
+
+
+@media screen and (max-width: 400px) {
+    .login-bg img{
+        max-width: 100%;
+        position:static;
+        z-index: 0;
+        display:inline-block;
+    }
+
+
+
+}
+
+  

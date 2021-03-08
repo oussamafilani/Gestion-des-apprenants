@@ -355,7 +355,7 @@ tr, td {
   width: 44%;
 }
 
-.insert-etu-container input, .insert-etu-container select {
+.insert-etu-container input, .insert-etu-container select, .insert-etu-container textarea {
   width: 100%;
   padding: 12px;
   border: 1px solid #ccc;

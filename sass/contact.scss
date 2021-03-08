@@ -5,16 +5,101 @@
 @import 'header';
 @import 'table';
 @import 'footer';
+@import 'formStyle';
+
 
 
 
 // start style 
  
-.bg-image{
-    background-image: url("../img/background/background.png");
+.support-bg{
+    display: flex;
+    flex-direction: row;
+    background-image: url("../img/background/background1.png");
     background-repeat: no-repeat;
-    height: auto;
     background-size: cover;
     width: 100%;
+    align-items: center;
+    padding-left: 100px;
+    padding-top: 33px;
+    height:auto;
     
+
+
+.arobas {
+    display:flex;
+}    
+  
+.home-icon {
+    display: flex;
+
+}  
+
+h2{
+    font-size: 38px;
+    
+    
+}    
+p{
+    font-size:18px;
+    margin-left:60px;
+    font-weight:500;
+
+}
+
+
+}
+ 
+.contact-bg{
+    display:flex;
+    flex-direction:row;
+    background-image: url("../img/background/background2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+   
+
+
+    .contact-pic{
+        margin-top:auto;
+        margin-left:220px;
+    }
+    
+    
+}
+
+.contact-form{
+    @extend %form-style;
+    background-color: #6C63FF;
+    margin: 10% 0% 10% 10%;
+    flex:60%;
+    width:80%;
+    
+
+    
+}
+.contact-form h2{
+    text-align: center;
+    color: white;
+}
+.contact-form input[type=text]{
+    width: 49%;
+}
+.contact-form input[type=submit]{
+    background-color: white;
+    border-radius: 50px;
+   
+    color: #c4c0d6;
+    &:hover{
+        background-color: black;
+        color: white;
+    }
+
+}
+
+.name{
+float: left;
+}
+.prenom{
+float: right;
 }

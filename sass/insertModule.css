@@ -355,7 +355,7 @@ tr, td {
   width: 44%;
 }
 
-.insert-mod-container input, .insert-mod-container select {
+.insert-mod-container input, .insert-mod-container select, .insert-mod-container textarea {
   width: 100%;
   padding: 12px;
   border: 1px solid #ccc;

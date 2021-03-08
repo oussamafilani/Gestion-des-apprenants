@@ -27,7 +27,7 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
           aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequatt sed do eiusmod tempor incididun</p>
         <div class="btn-div">
-          <button class="btn-hm">Login</button>
+          <a href="login.php"><button class="btn-hm">Login</button></a>
         </div>
       </div>
     </div>

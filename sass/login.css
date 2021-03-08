@@ -1,0 +1,249 @@
+/*===== GOOGLE FONTS =====*/
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
+.btn-log {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  padding: 10px 25px;
+  cursor: pointer;
+  border-radius: 4px;
+  border: none;
+  color: white;
+  background: var(--first-color);
+}
+
+.btn-log:hover {
+  background: #32408f;
+}
+
+table {
+  width: 750px;
+  border-collapse: collapse;
+  margin: 50px auto;
+}
+
+table caption {
+  font-size: 1.5em;
+  margin: .5em 0 .75em;
+}
+
+/* Zebra striping */
+tr:nth-of-type(odd) {
+  background: #eee;
+}
+
+th {
+  background: var(--first-color);
+  color: white;
+  font-weight: bold;
+}
+
+td, th {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: left;
+  font-size: 16px;
+}
+
+tr, td {
+  text-align: center;
+}
+
+.table-edit-icon {
+  cursor: pointer;
+}
+
+.table-trash-icon {
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 1040px), (min-device-width: 768px) and (max-device-width: 1024px) {
+  table {
+    width: 100%;
+  }
+  /* Force table to not be like tables anymore */
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+  /* Hide table headers (but not display: none;, for accessibility) */
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  tr {
+    border: 1px solid #ccc;
+  }
+  td {
+    /* Behave  like a "row" */
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 50%;
+  }
+  td:before {
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    /* Label the data */
+    content: attr(data-column);
+    color: #000;
+    font-weight: bold;
+  }
+}
+
+.login-form {
+  border-radius: 2px;
+  background-color: var(--white-color);
+  padding: 20px;
+  margin: 10% auto;
+  width: 44%;
+}
+
+.login-form input, .login-form select, .login-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+.login-form input[type="submit"] {
+  background-color: var(--first-color);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.login-form input[type="submit"]:hover {
+  background-color: var(--first-color-hover);
+}
+
+/*===== BASE =====*/
+*, ::before, ::after {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  font-family: 'Nunito', sans-serif;
+}
+
+.login-bg img {
+  max-width: 65%;
+  position: absolute;
+  z-index: -1;
+}
+
+.form-container {
+  display: flex;
+}
+
+.space {
+  flex: 50%;
+}
+
+.logo-form {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  flex: 50%;
+  width: 40vw;
+  height: Auto;
+}
+
+.logo-form img {
+  max-width: 65%;
+}
+
+.logo {
+  align-self: center;
+}
+
+.login-form {
+  background-color: #F5F5F5;
+  width: 46vw;
+  margin: 0;
+  padding: 30px;
+  text-align: center;
+}
+
+.login-form h2 {
+  text-align: left;
+}
+
+.login-form input {
+  width: 60%;
+}
+
+.login-form label {
+  margin-right: 10%;
+}
+
+.login-form input[type=submit] {
+  background-color: #6C63FF;
+  color: #F7F6FB;
+  border-radius: 50px;
+  margin-top: 20px;
+}
+
+.login-form input[type=submit]:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.login-bg-display {
+  display: none;
+}
+
+@media screen and (max-width: 1000px) {
+  .login-form {
+    width: 100%;
+    margin-bottom: 5%;
+    padding: 2%;
+  }
+  .login-form {
+    width: 100%;
+  }
+  .login-bg-display {
+    display: block;
+    text-align: center;
+  }
+  .login-bg-display img {
+    max-width: 40%;
+  }
+  .logo {
+    display: none;
+  }
+  .space {
+    display: none;
+  }
+  .login-form input {
+    width: 100%;
+  }
+  .login-form label {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .login-bg img {
+    max-width: 100%;
+    position: static;
+    z-index: 0;
+    display: inline-block;
+  }
+}
+/*# sourceMappingURL=login.css.map */

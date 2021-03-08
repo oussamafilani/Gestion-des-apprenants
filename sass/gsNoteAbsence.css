@@ -355,7 +355,7 @@ tr, td {
   width: 44%;
 }
 
-.insert-abs-container input, .insert-note-container input, .insert-abs-container select, .insert-note-container select {
+.insert-abs-container input, .insert-note-container input, .insert-abs-container select, .insert-note-container select, .insert-abs-container textarea, .insert-note-container textarea {
   width: 100%;
   padding: 12px;
   border: 1px solid #ccc;

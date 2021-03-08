@@ -9,14 +9,14 @@
         </a>
     </div>
     <div>
-        <button class="btn-log">Login</button>
+        <a href="login.php"><button class="btn-log">Login</button></a>
     </div>
 </header>
 
 <div class="l-navbar" id="nav-bar">
     <nav class="nav">
         <div>
-            <a href="index.php" class="nav__logo active">
+            <a href="index.php" class="nav__logo">
                 <i class="bx bxs-home nav__logo-icon"></i>
                 <span class="nav__logo-name">Academy Code</span>
             </a>

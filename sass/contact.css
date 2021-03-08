@@ -347,11 +347,115 @@ tr, td {
   }
 }
 
-.bg-image {
-  background-image: url("../img/background/background.png");
+.contact-form {
+  border-radius: 2px;
+  background-color: var(--white-color);
+  padding: 20px;
+  margin: 10% auto;
+  width: 44%;
+}
+
+.contact-form input, .contact-form select, .contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+.contact-form input[type="submit"] {
+  background-color: var(--first-color);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.contact-form input[type="submit"]:hover {
+  background-color: var(--first-color-hover);
+}
+
+.support-bg {
+  display: flex;
+  flex-direction: row;
+  background-image: url("../img/background/background1.png");
   background-repeat: no-repeat;
-  height: auto;
   background-size: cover;
   width: 100%;
+  align-items: center;
+  padding-left: 100px;
+  padding-top: 33px;
+  height: auto;
+}
+
+.support-bg .arobas {
+  display: flex;
+}
+
+.support-bg .home-icon {
+  display: flex;
+}
+
+.support-bg h2 {
+  font-size: 38px;
+}
+
+.support-bg p {
+  font-size: 18px;
+  margin-left: 60px;
+  font-weight: 500;
+}
+
+.contact-bg {
+  display: flex;
+  flex-direction: row;
+  background-image: url("../img/background/background2.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+}
+
+.contact-bg .contact-pic {
+  margin-top: auto;
+  margin-left: 220px;
+}
+
+.contact-form {
+  background-color: #6C63FF;
+  margin: 10% 0% 10% 10%;
+  flex: 60%;
+  width: 80%;
+}
+
+.contact-form h2 {
+  text-align: center;
+  color: white;
+}
+
+.contact-form input[type=text] {
+  width: 49%;
+}
+
+.contact-form input[type=submit] {
+  background-color: white;
+  border-radius: 50px;
+  color: #c4c0d6;
+}
+
+.contact-form input[type=submit]:hover {
+  background-color: black;
+  color: white;
+}
+
+.name {
+  float: left;
+}
+
+.prenom {
+  float: right;
 }
 /*# sourceMappingURL=contact.css.map */

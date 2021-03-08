@@ -19,8 +19,52 @@
 
   <?php include('header.php'); ?>
 
+  <section class="bg-image">
+    <div class="support-bg">
+      <div class="content-bg">
+        <h2>Help & Support </h2>
+        <p>Feel free to contact us
+        </p>
+        <br>
+        <div class="arobas">
+          <img src="img/background/arroba.png">
 
-  <section class="bg-image"></section>
+          <p>support@academycode.com</p>
+
+        </div>
+        <br>
+        <br>
+        <div class="home-icon">
+          <img src="img/background/home.png" width="auto" height="auto">
+          <p>support@academycode.com</p>
+        </div>
+      </div>
+      <div class="info-bg">
+        <img src="img/background/Info-bg.png" width="100%" height="auto">
+
+      </div>
+
+    </div>
+
+    <div class="contact-bg">
+      <div class="contact-form">
+        <form action="">
+          <h2>Contact Now</h2>
+          <input class="name" name="lname" placeholder="Nom" type="text" />
+          <input class="prenom" name="fname" placeholder="Prenom" type="text" />
+          <input name="email" placeholder="Email" type="email" />
+          <textarea id="" name="" rows="4" cols="50"></textarea>
+
+          <input name="submit" type="submit" value="Contact" />
+        </form>
+      </div>
+      <div class="contact-pic">
+        <img src="img/background/contact.png" width="100%" height="auto">
+      </div>
+    </div>
+  </section>
+
+
 
   <?php include('footer.php'); ?>
   <!--===== MAIN JS =====-->

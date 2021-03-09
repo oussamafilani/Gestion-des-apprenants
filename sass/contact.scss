@@ -103,3 +103,35 @@ float: left;
 .prenom{
 float: right;
 }
+
+
+@media only screen and (max-width: 1000px){
+    .bg-image{
+        background-image: url("../img/background/background2.png");
+        background-size: cover;
+    }
+.support-bg{
+    background-image: none;
+    .content-bg{
+        text-align: end;
+    }
+    .info-bg{
+        display: none;
+
+    }
+}
+
+
+.contact-bg{ 
+        background-image: none;
+       margin: 0%;
+       .contact-form {
+           flex:none;
+
+       }
+        .contact-pic{
+        display: none;
+    }
+}
+
+}

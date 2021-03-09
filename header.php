@@ -4,7 +4,7 @@
     </div>
 
     <div class="header__img">
-        <a href="index.php">
+        <a href="index.html">
             <img src="img/logo/logo.png" alt="" />
         </a>
     </div>
@@ -16,38 +16,38 @@
 <div class="l-navbar" id="nav-bar">
     <nav class="nav">
         <div>
-            <a href="index.php" class="nav__logo">
+            <a href="index.html" class="nav__logo">
                 <i class="bx bxs-home nav__logo-icon"></i>
                 <span class="nav__logo-name">Academy Code</span>
             </a>
 
             <div class="nav__list">
-                <a href="enseignant.php" class="nav__link">
+                <a href="enseignant.html" class="nav__link">
                     <i class="bx bx-grid-alt nav__icon"></i>
                     <span class="nav__name">Dashboard</span>
                 </a>
 
-                <a href="insertEtu.php" class="nav__link">
+                <a href="insertEtu.html" class="nav__link">
                     <i class="fas fa-user-plus nav__icon"></i>
                     <span class="nav__name">Add Etudiant</span>
                 </a>
 
-                <a href="insertModule.php" class="nav__link">
+                <a href="insertModule.html" class="nav__link">
                     <i class="fas fa-book nav__icon"></i>
                     <span class="nav__name">Add Module</span>
                 </a>
 
-                <a href="insertSeance.php" class="nav__link">
+                <a href="insertSeance.html" class="nav__link">
                     <i class="fas fa-pen nav__icon"></i>
                     <span class="nav__name">Add Seance</span>
                 </a>
 
-                <a href="gsNoteAbsence.php" class="nav__link">
+                <a href="gsNoteAbsence.html" class="nav__link">
                     <i class="fas fa-tasks nav__icon"></i>
                     <span class="nav__name">Note & Absences</span>
                 </a>
 
-                <a href="contact.php" class="nav__link">
+                <a href="contact.html" class="nav__link">
                     <i class="fas fa-user nav__icon"></i>
                     <span class="nav__name">Contact</span>
                 </a>

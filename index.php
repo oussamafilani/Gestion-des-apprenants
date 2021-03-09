@@ -20,7 +20,7 @@
 
   <section class="bg-image">
     <div class="welcome">
-      <img src="img/background/welcome.png" alt="" />
+      <img src="img/background/welcome.png" alt="" width="40%" height="auto" />
 
       <div class="content-bg">
         <h2>Creative Space For <br> Creative Thinkers</h2>

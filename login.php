@@ -22,8 +22,8 @@
     <!-- start login -->
 
 
-    <div class="login-bg-display">
-    <a href="index.php"><img src="img/logo/logo1.png" alt=""></a>
+    <div class="logo-bg-display">
+        <a href="index.php"><img src="img/logo/logo1.png" alt=""></a>
     </div>
     <div class="login-bg">
         <img src="img/background/loginbackground.png" alt="">
@@ -31,27 +31,28 @@
 
     <section class="form-container">
 
-    <div class="space">
-
-    </div>
-    <div  class="logo-form" >
-        <div class="logo">
-       <a href="index.php"><img src="img/logo/logo1.png" alt=""></a> 
-    </div>
-        <div class="login-form">
-            <form action="">
-                <h2>Login</h2>
-                <hr>
-                <label for="user">Username</label>
-                <input class="" name="user" placeholder="Username" type="text" />
-
-                <label for="pass">Password</label>
-                <input class="" name="pass" placeholder="Password" type="password" />
-
-                <input name="submit" type="submit" value="login" />
-            </form>
+        <div class="space">
         </div>
-    </div>
+        <div class="logo-form">
+            <div class="logo">
+                <a href="index.php"><img src="img/logo/logo1.png" alt=""></a>
+            </div>
+            <div class="login-form">
+                <form action="">
+                    <h2>Login</h2>
+                    <hr>
+                    <label for="user">Username</label>
+                    <input class="" name="user" placeholder="Username" type="text" />
+
+                    <label for="pass">Password</label>
+                    <input class="" name="pass" placeholder="Password" type="password" />
+
+                    <input name="submit" type="submit" value="login" />
+                </form>
+            </div>
+
+
+        </div>
 
     </section>
 

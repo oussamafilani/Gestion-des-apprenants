@@ -378,4 +378,12 @@ tr, td {
 .insert-etu-container input[type="submit"]:hover {
   background-color: var(--first-color-hover);
 }
+
+@media screen and (max-width: 1040px) {
+  .insert-etu-container {
+    width: 80%;
+    margin-top: 15px;
+    margin-bottom: 5px;
+  }
+}
 /*# sourceMappingURL=insertEtu.css.map */

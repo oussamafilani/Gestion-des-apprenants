@@ -99,7 +99,7 @@ tr, td {
   }
 }
 
-.login-form {
+.form-container .logo-form .login-form {
   border-radius: 2px;
   background-color: var(--white-color);
   padding: 20px;
@@ -107,7 +107,7 @@ tr, td {
   width: 44%;
 }
 
-.login-form input, .login-form select, .login-form textarea {
+.form-container .logo-form .login-form input, .form-container .logo-form .login-form select, .form-container .logo-form .login-form textarea {
   width: 100%;
   padding: 12px;
   border: 1px solid #ccc;
@@ -118,7 +118,7 @@ tr, td {
   resize: vertical;
 }
 
-.login-form input[type="submit"] {
+.form-container .logo-form .login-form input[type="submit"] {
   background-color: var(--first-color);
   color: white;
   padding: 12px 20px;
@@ -127,7 +127,7 @@ tr, td {
   cursor: pointer;
 }
 
-.login-form input[type="submit"]:hover {
+.form-container .logo-form .login-form input[type="submit"]:hover {
   background-color: var(--first-color-hover);
 }
 
@@ -141,6 +141,10 @@ body {
   font-family: 'Nunito', sans-serif;
 }
 
+.logo-bg-display {
+  display: none;
+}
+
 .login-bg img {
   max-width: 65%;
   position: absolute;
@@ -151,11 +155,11 @@ body {
   display: flex;
 }
 
-.space {
+.form-container .space {
   flex: 50%;
 }
 
-.logo-form {
+.form-container .logo-form {
   display: flex;
   flex-direction: column;
   align-self: center;
@@ -164,15 +168,15 @@ body {
   height: Auto;
 }
 
-.logo-form img {
-  max-width: 65%;
-}
-
-.logo {
+.form-container .logo-form .logo {
   align-self: center;
 }
 
-.login-form {
+.form-container .logo-form .logo img {
+  max-width: 65%;
+}
+
+.form-container .logo-form .login-form {
   background-color: #F5F5F5;
   width: 46vw;
   margin: 0;
@@ -180,70 +184,62 @@ body {
   text-align: center;
 }
 
-.login-form h2 {
+.form-container .logo-form .login-form h2 {
   text-align: left;
 }
 
-.login-form input {
+.form-container .logo-form .login-form input {
   width: 60%;
 }
 
-.login-form label {
+.form-container .logo-form .login-form label {
   margin-right: 10%;
 }
 
-.login-form input[type=submit] {
+.form-container .logo-form .login-form input[type=submit] {
   background-color: #6C63FF;
   color: #F7F6FB;
   border-radius: 50px;
   margin-top: 20px;
+  width: 120px;
 }
 
-.login-form input[type=submit]:hover {
+.form-container .logo-form .login-form input[type=submit]:hover {
   background-color: #000000;
   color: #ffffff;
 }
 
-.login-bg-display {
-  display: none;
-}
-
 @media screen and (max-width: 1000px) {
-  .login-form {
-    width: 100%;
+  .logo-bg-display {
+    display: flex;
+    justify-content: center;
+  }
+  .logo-bg-display img {
+    max-width: 60%;
+  }
+  .login-bg img {
+    display: none;
+  }
+  .form-container .space {
+    display: none;
+  }
+  .form-container .logo-form .login-form {
+    width: auto;
+    align-self: center;
     margin-bottom: 5%;
     padding: 2%;
   }
-  .login-form {
-    width: 100%;
+  .form-container .logo-form .login-form input {
+    width: 80%;
   }
-  .login-bg-display {
-    display: block;
-    text-align: center;
-  }
-  .login-bg-display img {
-    max-width: 40%;
-  }
-  .logo {
+  .form-container .logo-form .login-form label {
     display: none;
   }
-  .space {
+  .form-container .logo-form .login-form input[type=submit] {
+    width: 120px;
+  }
+  .form-container .logo-form .logo {
     display: none;
-  }
-  .login-form input {
-    width: 100%;
-  }
-  .login-form label {
-    display: none;
-  }
-}
-
-@media screen and (max-width: 400px) {
-  .login-bg img {
-    max-width: 100%;
-    position: static;
-    z-index: 0;
-    display: inline-block;
   }
 }
 /*# sourceMappingURL=login.css.map */

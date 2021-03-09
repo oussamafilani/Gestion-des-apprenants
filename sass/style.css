@@ -34,7 +34,7 @@ a {
   text-decoration: none;
 }
 
-.btn-log, .content-bg .btn-hm {
+.btn-log, .bg-image .content-bg .btn-hm {
   display: inline-block;
   text-decoration: none;
   font-size: 14px;
@@ -48,7 +48,7 @@ a {
   background: var(--first-color);
 }
 
-.btn-log:hover, .content-bg .btn-hm:hover {
+.btn-log:hover, .bg-image .content-bg .btn-hm:hover {
   background: #32408f;
 }
 
@@ -355,14 +355,6 @@ tr, td {
   width: 100%;
 }
 
-.bg-image {
-  background-image: url("../img/background/background.png");
-  background-repeat: no-repeat;
-  height: auto;
-  background-size: cover;
-  width: 100%;
-}
-
 .bg-image h2 {
   font-size: 70px;
   width: 100%;
@@ -370,29 +362,29 @@ tr, td {
 
 .bg-image p {
   font-size: 18px;
-  width: 100%;
-  padding: 0% 30%;
+  text-align: center;
 }
 
-.welcome {
+.bg-image .welcome {
   text-align: center;
   margin: 0 auto;
   padding: 0 0 3% 0;
 }
 
-.welcome img {
-  max-width: 100%;
+.bg-image .welcome img {
+  margin-top: 4%;
 }
 
-.content-bg {
+.bg-image .content-bg {
   color: white;
+  overflow: auto;
   margin: 0 auto;
+  width: 40%;
 }
 
-.content-bg .btn-hm {
+.bg-image .content-bg .btn-hm {
   border-radius: 30px;
-  height: 40px;
-  width: 120px;
+  float: right;
 }
 
 /***********************Media querry*************************/
@@ -412,6 +404,25 @@ tr, td {
   .bg-image p {
     font-size: 17px;
   }
+  .bg-image .content-bg {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .welcome img {
+    width: 50%;
+  }
+  .welcome .div-btn a {
+    font-size: 22px;
+  }
+  .welcome .div-btn .btn-hm {
+    height: 30px;
+    width: 100px;
+  }
+  .bg-image .content-bg {
+    width: 90%;
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -419,8 +430,11 @@ tr, td {
     font-size: 20px;
   }
   .bg-image p {
-    font-size: 10px;
+    font-size: 13px;
     padding: 0%;
+  }
+  .welcome img {
+    width: 80%;
   }
 }
 /*# sourceMappingURL=style.css.map */

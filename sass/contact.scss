@@ -63,39 +63,37 @@ p{
     .contact-pic{
         margin-top:auto;
         margin-left:220px;
-    }
-    
-    
+    }   
 }
 
 .contact-form{
     @extend %form-style;
+    text-align: center;
     background-color: #6C63FF;
     margin: 10% 0% 10% 10%;
     flex:60%;
-    width:80%;
-    
-
-    
-}
-.contact-form h2{
-    text-align: center;
-    color: white;
-}
-.contact-form input[type=text]{
-    width: 49%;
-}
-.contact-form input[type=submit]{
-    background-color: white;
-    border-radius: 50px;
-   
-    color: #c4c0d6;
-    &:hover{
-        background-color: black;
+    width:80%; 
+    h2{
+        text-align: center;
         color: white;
+    } 
+    input[type=text]{
+        width: 49%;
     }
-
+    input[type=submit]{
+        background-color: white;
+        border-radius: 50px;
+        width: 120px;
+       
+        color: #c4c0d6;
+        &:hover{
+            background-color: black;
+            color: white;
+        }
+    
+    }
 }
+
 
 .name{
 float: left;
@@ -105,28 +103,48 @@ float: right;
 }
 
 
+
+
 @media only screen and (max-width: 1000px){
     .bg-image{
         background-image: url("../img/background/background2.png");
         background-size: cover;
+        .support-bg{
+            background-image: none;
+            padding: 0;
+            margin: 0;
+            justify-content: center;
+            p {
+                font-size: 16px;
+             margin-left: 20px;
+            }
+        
+            .contact-bg {
+                .arobas img{
+                    max-width: 60%;
+                }    
+                  
+                .home-icon img{
+                    max-width: 60%;
+                
+                }
+            }
+            .info-bg{
+                display: none;
+        
+            }
+        }
+        
     }
-.support-bg{
-    background-image: none;
-    .content-bg{
-        text-align: end;
-    }
-    .info-bg{
-        display: none;
-
-    }
-}
 
 
 .contact-bg{ 
-        background-image: none;
+       background-image: none;
        margin: 0%;
        .contact-form {
            flex:none;
+           width: 85%;
+           margin: 10% auto;
 
        }
         .contact-pic{
@@ -134,4 +152,6 @@ float: right;
     }
 }
 
+
 }
+

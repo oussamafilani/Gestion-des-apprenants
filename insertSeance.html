@@ -88,7 +88,7 @@
 
     <!-- start insert etudiant -->
     <div class="insert-sea-container">
-      <form action="">
+      <form action="" name="seanceForm" id="seanceForm">
         <h2>Creation d'une seance</h2>
 
         <label for="module">Module *</label>
@@ -110,8 +110,14 @@
           <option value="choix">cours</option>
         </select>
 
-        <input id="btn" name="submit" type="submit" value="Ajouter" />
+        <input
+          id="btn"
+          name="submit"
+          type="submit"
+          value="Ajouter""
+        />
       </form>
+      <p style="color: red; text-align: center" id="erreur"></p>
     </div>
 
     <footer>
@@ -150,5 +156,6 @@
     </footer>
     <!--===== MAIN JS =====-->
     <script src="js/main.js"></script>
+    <script src="js/Seance.js"></script>
   </body>
 </html>

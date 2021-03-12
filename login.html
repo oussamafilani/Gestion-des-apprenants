@@ -39,11 +39,17 @@
           <a href="index.html"><img src="img/logo/logo1.png" alt="" /></a>
         </div>
         <div class="login-form">
-          <form action="">
+          <form action="" name="loginform">
             <h2>Login</h2>
             <hr />
             <label for="user">Username</label>
-            <input class="" name="user" placeholder="Username" type="text" />
+            <input
+              class=""
+              name="user"
+              placeholder="Username"
+              type="text"
+              id="user"
+            />
 
             <label for="pass">Password</label>
             <input
@@ -51,10 +57,12 @@
               name="pass"
               placeholder="Password"
               type="password"
+              id="pass"
             />
 
             <input name="submit" type="submit" value="login" />
           </form>
+          <p style="color: red" id="erreur"></p>
         </div>
       </div>
     </section>
@@ -63,5 +71,6 @@
 
     <!--===== MAIN JS =====-->
     <script src="js/main.js"></script>
+    <script src="js/login.js"></script>
   </body>
 </html>

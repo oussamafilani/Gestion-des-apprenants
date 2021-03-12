@@ -63,6 +63,9 @@ body{
             }
             input{
                 width: 70%;
+                // &:focus{
+                //     outline: 2px solid green;     /* oranges! yey */
+                //   }
             }
             label{
                 margin-right: 10%;

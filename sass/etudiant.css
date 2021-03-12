@@ -10,7 +10,7 @@
   --first-color-light: #c4c0d6;
   --white-color: #F7F6FB;
   /*===== Font and typography =====*/
-  --body-font: "Nunito", sans-serif;
+  --body-font: 'Nunito', sans-serif;
   --normal-font-size: 1rem;
   /*===== z index =====*/
   --z-fixed: 100;
@@ -27,7 +27,7 @@ body {
   padding: 0;
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
-  transition: 0.5s;
+  transition: .5s;
 }
 
 a {
@@ -47,6 +47,7 @@ a {
   color: white;
   background: var(--first-color);
 }
+
 .btn-log:hover {
   background: #32408f;
 }
@@ -64,13 +65,15 @@ a {
   padding: 0 1rem;
   background-color: var(--white-color);
   z-index: var(--z-fixed);
-  transition: 0.5s;
+  transition: .5s;
 }
+
 .header__toggle {
   color: var(--first-color);
   font-size: 1.5rem;
   cursor: pointer;
 }
+
 .header__img {
   width: 35px;
   height: 35px;
@@ -79,6 +82,7 @@ a {
   border-radius: 50%;
   overflow: hidden;
 }
+
 .header__img img {
   width: 40px;
 }
@@ -91,8 +95,8 @@ a {
   width: var(--nav-width);
   height: 100vh;
   background-color: var(--first-color);
-  padding: 0.5rem 1rem 0 0;
-  transition: 0.5s;
+  padding: .5rem 1rem 0 0;
+  transition: .5s;
   z-index: var(--z-fixed);
 }
 
@@ -103,33 +107,40 @@ a {
   justify-content: space-between;
   overflow: hidden;
 }
+
 .nav__logo, .nav__link {
   display: grid;
   grid-template-columns: max-content max-content;
   align-items: center;
   column-gap: 1rem;
-  padding: 0.5rem 0 0.5rem 1.5rem;
+  padding: .5rem 0 .5rem 1.5rem;
 }
+
 .nav__logo {
   margin-bottom: 2rem;
 }
+
 .nav__logo-icon {
   font-size: 1.25rem;
   color: var(--white-color);
 }
+
 .nav__logo-name {
   color: var(--white-color);
   font-weight: 700;
 }
+
 .nav__link {
   position: relative;
   color: var(--first-color-light);
   margin-bottom: 1.5rem;
-  transition: 0.3s;
+  transition: .3s;
 }
+
 .nav__link:hover {
   color: var(--white-color);
 }
+
 .nav__icon {
   font-size: 1.25rem;
 }
@@ -148,8 +159,9 @@ a {
 .active {
   color: var(--white-color);
 }
+
 .active::before {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   width: 2px;
@@ -163,7 +175,6 @@ a {
     margin: calc(var(--header-height) + 1rem) 0 0 0;
     padding-left: calc(var(--nav-width) + 0.01rem);
   }
-
   .header {
     height: calc(var(--header-height) + 1rem);
     padding: 0 2rem 0 calc(var(--nav-width) + 2rem);
@@ -175,30 +186,29 @@ a {
   .header__img img {
     width: 45px;
   }
-
   .l-navbar {
     left: 0;
     padding: 1rem 1rem 0 0;
   }
-
   /*Show navbar desktop*/
   .show {
     width: calc(var(--nav-width) + 156px);
   }
-
   /*Add padding body desktop*/
   .body-pd {
     padding-left: calc(var(--nav-width) + 155px);
   }
 }
+
 table {
   width: 60%;
   border-collapse: collapse;
   margin: 50px auto;
 }
+
 table caption {
   font-size: 1.5em;
-  margin: 0.5em 0 0.75em;
+  margin: .5em 0 .75em;
 }
 
 /* Zebra striping */
@@ -240,38 +250,47 @@ tr, td {
   flex-direction: row;
   flex-wrap: wrap;
 }
+
 .footer-con ul {
   padding: 0;
   list-style: none;
   font-size: 16px;
 }
+
 .footer-con ul li {
   display: inline;
   margin: 1%;
   font-size: 16px;
 }
+
 .footer-con ul a {
   color: inherit;
   text-decoration: none;
   opacity: 0.8;
 }
+
 .footer-con ul a:hover {
   opacity: 1;
 }
+
 .footer-con .footer-row {
   margin: 0%;
   padding: 0%;
   text-align: center;
 }
+
 .footer-con .footer-row__1 {
   flex: 25%;
 }
+
 .footer-con .footer-row__2 {
   flex: 50%;
 }
+
 .footer-con .footer-row__3 {
   flex: 25%;
 }
+
 .footer-con .footer-row__3 .fab {
   font-size: 25px;
 }
@@ -287,6 +306,7 @@ tr, td {
     order: 1;
   }
 }
+
 .etu-cart {
   display: flex;
   width: 60%;
@@ -314,22 +334,20 @@ tr, td {
     flex-wrap: wrap;
     width: 100%;
   }
-
   .etu-avatar {
     flex: 100%;
   }
-
   .etu-avatar img {
     max-width: 100%;
   }
-
   .etu-content {
     flex: 100%;
   }
 }
+
 .title-sec {
   font-size: 1.5em;
-  margin: 0.5em 0 0.75em;
+  margin: .5em 0 .75em;
   margin-top: 9%;
   text-align: center;
 }
@@ -349,23 +367,19 @@ h2 {
   table caption {
     text-align: center;
   }
-
   /* Force table to not be like tables anymore */
   table, thead, tbody, th, td, tr {
     display: block;
   }
-
   /* Hide table headers (but not display: none;, for accessibility) */
   thead tr {
     position: absolute;
     top: -9999px;
     left: -9999px;
   }
-
   tr {
     border: 1px solid #ccc;
   }
-
   td {
     /* Behave  like a "row" */
     border: none;
@@ -373,7 +387,6 @@ h2 {
     position: relative;
     padding-left: 50%;
   }
-
   td:before {
     /* Now like a table header */
     position: absolute;
@@ -389,5 +402,4 @@ h2 {
     font-weight: bold;
   }
 }
-
 /*# sourceMappingURL=etudiant.css.map */

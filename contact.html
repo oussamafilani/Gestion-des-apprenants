@@ -111,20 +111,21 @@
 
       <div class="contact-bg">
         <div class="contact-form">
-          <form action="">
+          <form action="" name="contactForm">
             <h2>Contact Now</h2>
-            <input class="name" name="lname" placeholder="Nom" type="text" />
+            <input class="name" name="lname" placeholder="Nom" type="text"  id="name"/>
             <input
               class="prenom"
               name="fname"
               placeholder="Prenom"
               type="text"
             />
-            <input name="email" placeholder="Email" type="email" />
-            <textarea id="" name="" rows="4" cols="50"></textarea>
+            <input name="email" placeholder="Email" type="email" id="email"/>
+            <textarea id="message" name="" rows="4" cols="50"></textarea>
 
             <input name="submit" type="submit" value="Contact" />
           </form>
+          <p style="color: red" id="erreur"></p>
         </div>
         <div class="contact-pic">
           <img src="img/background/contact.png" width="100%" height="auto" />
@@ -168,5 +169,6 @@
     </footer>
     <!--===== MAIN JS =====-->
     <script src="js/main.js"></script>
+    <script src="js/contact.js"></script>
   </body>
 </html>

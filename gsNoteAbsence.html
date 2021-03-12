@@ -88,46 +88,48 @@
 
     <!-- start insert etudiant -->
     <div class="insert-abs-container">
-      <form action="">
+      <form action="" name="absencesForm">
         <h2>Gestion des absences</h2>
 
         <label for="module">Module *</label>
         <select name="module" id="">
-          <option value="choix">select</option>
+          <option value="">select</option>
         </select>
         <label for="date">Date *</label>
         <select name="date" id="">
-          <option value="choix">JJ/MM/AAAA</option>
+          <option value="">JJ/MM/AAAA</option>
         </select>
         <label for="ename">Nom d'étudiant *</label>
         <select name="ename" id="">
-          <option value="choix">Nom d'étudiant</option>
+          <option value="">Nom d'étudiant</option>
         </select>
 
         <input id="btn" name="submit" type="submit" value="Ajouter" />
       </form>
+      <p style="color: red; text-align: center" id="erreur"></p>
     </div>
     <div class="insert-note-container">
-      <form action="">
+      <form action="" name="NoteForm">
         <h2>Gestion des notes</h2>
 
         <label for="module">Module *</label>
         <select name="module" id="">
-          <option value="choix">select</option>
+          <option value="">select</option>
         </select>
 
         <label for="ename">Nom d'étudiant *</label>
         <select name="ename" id="">
-          <option value="choix">Nom d'étudiant</option>
+          <option value="">Nom d'étudiant</option>
         </select>
 
         <label for="note">Note *</label>
         <select name="note" id="">
-          <option value="choix">xx/20</option>
+          <option value="">xx/20</option>
         </select>
 
         <input id="btn" name="submit" type="submit" value="Ajouter" />
       </form>
+      <p style="color: red; text-align: center" id="erreur2"></p>
     </div>
 
     <footer>
@@ -166,5 +168,7 @@
     </footer>
     <!--===== MAIN JS =====-->
     <script src="js/main.js"></script>
+    <script src="js/Absence.js"></script>
+    <script src="js/Note.js"></script>
   </body>
 </html>

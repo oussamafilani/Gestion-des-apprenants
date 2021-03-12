@@ -51,7 +51,7 @@ CREATE TABLE `enseignant` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `etudiant`
+-- Table structure for table  `etudiant`
 --
 
 CREATE TABLE `etudiant` (

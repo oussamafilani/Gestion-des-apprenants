@@ -49,7 +49,7 @@ a {
 }
 
 .btn-log:hover {
-  background: #32408f;
+  background: var(--first-color-hover);
 }
 
 /*===== HEADER =====*/
@@ -386,7 +386,7 @@ tr, td {
 
 .contact-form {
   text-align: center;
-  background-color: #6C63FF;
+  background-color: var(--first-color);
   margin: 10% 0% 10% 10%;
   flex: 60%;
   width: 80%;

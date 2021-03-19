@@ -49,7 +49,7 @@ a {
 }
 
 .btn-log:hover, .bg-image .content-bg .btn-hm:hover {
-  background: #32408f;
+  background: var(--first-color-hover);
 }
 
 /*===== HEADER =====*/

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 15, 2021 at 10:03 PM
+-- Generation Time: Mar 19, 2021 at 04:55 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.2.34
 
@@ -34,18 +34,6 @@ CREATE TABLE `absence` (
   `fk_seance` int(11) NOT NULL,
   `fk_etudiant` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
---
--- Dumping data for table `absence`
---
-
-INSERT INTO `absence` (`id_absence`, `justifiee`, `comm_abs`, `fk_seance`, `fk_etudiant`) VALUES
-(1, 1, 'malade', 1, 4),
-(2, 0, NULL, 1, 6),
-(3, 1, NULL, 5, 6),
-(4, 0, NULL, 6, 4),
-(5, 1, 'nonnnn', 12, 1),
-(6, 1, 'OUII', 7, 8);
 
 -- --------------------------------------------------------
 
@@ -125,7 +113,13 @@ INSERT INTO `module` (`id_module`, `intitule_module`, `fk_enseigne`) VALUES
 (4, 'Linux', 1),
 (5, 'Docker', 2),
 (6, 'NoSQL', 2),
-(7, 'Javascript', 1);
+(7, 'Javascript', 1),
+(9, 'crypto', 1),
+(10, 'jee', 1),
+(11, 'python', 1),
+(12, 'AI', 1),
+(13, 'Nodejs', 1),
+(14, 'Virtualisation', 2);
 
 -- --------------------------------------------------------
 
@@ -139,20 +133,6 @@ CREATE TABLE `note` (
   `fk_module` int(11) NOT NULL,
   `fk_etudiant` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
---
--- Dumping data for table `note`
---
-
-INSERT INTO `note` (`id_note`, `note_module`, `fk_module`, `fk_etudiant`) VALUES
-(1, 16, 1, 1),
-(2, 14, 1, 2),
-(3, 18, 1, 3),
-(4, 16, 1, 4),
-(5, 17, 1, 5),
-(6, 17, 1, 6),
-(7, 17, 1, 7),
-(8, 13, 1, 8);
 
 -- --------------------------------------------------------
 
@@ -175,20 +155,23 @@ CREATE TABLE `seance` (
 --
 
 INSERT INTO `seance` (`id_seance`, `date_seance`, `heure_debut`, `heure_fin`, `type_seance`, `fk_seance_module`, `fk_seance_enseignant`) VALUES
-(1, '2021-04-03', '13:30:00', '15:00:00', 'Cours', 1, 1),
-(2, '2021-04-07', '08:30:00', '10:00:00', 'TP', 1, 2),
-(3, '2021-04-11', '10:30:00', '12:00:00', 'Cours', 1, 2),
-(4, '2021-04-05', '10:30:00', '12:00:00', 'Cours', 2, 1),
+(1, '2021-04-03', '13:30:00', '15:00:00', 'Cours', 13, 1),
+(2, '2021-04-07', '08:30:00', '10:00:00', 'TP', 1, 1),
+(3, '2021-04-11', '10:30:00', '12:00:00', 'Cours', 1, 1),
+(4, '2021-04-05', '10:30:00', '12:00:00', 'Cours', 2, 2),
 (5, '2021-04-07', '08:30:00', '10:00:00', 'TP', 2, 2),
 (6, '2021-04-06', '13:30:00', '15:00:00', 'Cours', 3, 2),
-(7, '2021-04-06', '15:30:00', '17:00:00', 'TD', 3, 1),
-(8, '2021-04-01', '15:30:00', '17:00:00', 'Cours', 4, 2),
-(9, '2021-04-02', '13:30:00', '15:00:00', 'Cours', 4, 2),
+(7, '2021-04-06', '15:30:00', '17:00:00', 'TD', 3, 2),
+(8, '2021-04-01', '15:30:00', '17:00:00', 'Cours', 4, 1),
+(9, '2021-04-02', '13:30:00', '15:00:00', 'Cours', 4, 1),
 (10, '2021-04-02', '08:30:00', '10:00:00', 'TD', 5, 2),
-(11, '2021-04-03', '10:30:00', '12:00:00', 'Cours', 5, 1),
+(11, '2021-04-03', '10:30:00', '12:00:00', 'Cours', 5, 2),
 (12, '2021-03-01', '10:30:00', '12:00:00', 'Cours', 6, 2),
-(13, '2021-03-03', '08:30:00', '10:00:00', 'TP', 6, 1),
-(14, '2020-05-05', '08:30:00', '10:00:00', 'TP', 7, 2);
+(13, '2021-03-03', '08:30:00', '10:00:00', 'TP', 6, 2),
+(14, '2020-05-05', '08:30:00', '10:00:00', 'TP', 7, 1),
+(15, '2021-03-19', '07:32:00', '13:32:00', 'TD', 13, 1),
+(16, '2022-02-02', '07:41:00', '07:41:00', 'TD', 13, 1),
+(17, '2016-02-03', '11:28:00', '11:28:00', 'TP', 13, 1);
 
 -- --------------------------------------------------------
 
@@ -217,7 +200,11 @@ INSERT INTO `user` (`id_user`, `login`, `password`, `access`) VALUES
 (7, 'farouk', '123', 0),
 (8, 'steve', '123', 0),
 (9, 'sara', '123', 0),
-(10, 'fadoua', '123', 0);
+(10, 'fadoua', '123', 0),
+(11, 'mariam', '123', 0),
+(13, 'chafik', '123456789', 0),
+(14, 'khadija', '123', 0),
+(15, 'sir', '123', 0);
 
 --
 -- Indexes for dumped tables
@@ -228,8 +215,8 @@ INSERT INTO `user` (`id_user`, `login`, `password`, `access`) VALUES
 --
 ALTER TABLE `absence`
   ADD PRIMARY KEY (`id_absence`),
-  ADD KEY `FK_seance` (`fk_seance`),
-  ADD KEY `FK_etudiant1` (`fk_etudiant`);
+  ADD KEY `FK_etudiant1` (`fk_etudiant`),
+  ADD KEY `FK_seance` (`fk_seance`);
 
 --
 -- Indexes for table `enseignant`
@@ -250,6 +237,7 @@ ALTER TABLE `etudiant`
 --
 ALTER TABLE `module`
   ADD PRIMARY KEY (`id_module`),
+  ADD UNIQUE KEY `intitule_module` (`intitule_module`),
   ADD KEY `FK_Enseigne_module` (`fk_enseigne`);
 
 --
@@ -272,7 +260,8 @@ ALTER TABLE `seance`
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`id_user`);
+  ADD PRIMARY KEY (`id_user`),
+  ADD UNIQUE KEY `login` (`login`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -282,7 +271,25 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `absence`
 --
 ALTER TABLE `absence`
-  MODIFY `id_absence` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_absence` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT for table `enseignant`
+--
+ALTER TABLE `enseignant`
+  MODIFY `id_enseignant` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `etudiant`
+--
+ALTER TABLE `etudiant`
+  MODIFY `id_etudiant` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `module`
+--
+ALTER TABLE `module`
+  MODIFY `id_module` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `note`
@@ -291,10 +298,16 @@ ALTER TABLE `note`
   MODIFY `id_note` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
+-- AUTO_INCREMENT for table `seance`
+--
+ALTER TABLE `seance`
+  MODIFY `id_seance` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Constraints for dumped tables
@@ -337,9 +350,7 @@ ALTER TABLE `note`
 --
 ALTER TABLE `seance`
   ADD CONSTRAINT `FK__seance_enseignant` FOREIGN KEY (`fk_seance_enseignant`) REFERENCES `enseignant` (`id_enseignant`),
-  ADD CONSTRAINT `FK__seance_module` FOREIGN KEY (`fk_seance_module`) REFERENCES `module` (`id_module`),
-  ADD CONSTRAINT `FK_module` FOREIGN KEY (`fk_seance_module`) REFERENCES `module` (`id_module`),
-  ADD CONSTRAINT `FK_user` FOREIGN KEY (`fk_seance_enseignant`) REFERENCES `enseignant` (`id_enseignant`);
+  ADD CONSTRAINT `FK__seance_module` FOREIGN KEY (`fk_seance_module`) REFERENCES `module` (`id_module`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

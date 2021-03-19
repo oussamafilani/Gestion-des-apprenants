@@ -49,7 +49,7 @@ a {
 }
 
 .btn-log:hover {
-  background: #32408f;
+  background: var(--first-color-hover);
 }
 
 /*===== HEADER =====*/

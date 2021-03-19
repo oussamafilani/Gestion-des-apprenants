@@ -9,6 +9,28 @@
 
 .insert-abs-container,.insert-note-container{
   @extend %form-style;
+
+}
+
+.insert-abs-container{
+  margin: 6% auto 2% auto;
+}
+
+.insert-note-container{
+  margin: 10% auto 2% auto;
+}
+.title-sec {
+    font-size: 1.5em;
+    margin: .5em 0 .75em;
+    margin-top: 9%;
+    text-align: center;
+    }
+
+    table th{
+      text-align: center;
+    }
+h2{
+  text-align: center;
 }
 
 
@@ -17,5 +39,43 @@
     width: 100%;
     margin-top: 2px;
   }
+/* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr { 
+		display: block; 
+    width: 100%;
+	}
+	
+	/* Hide table headers (but not display: none;, for accessibility) */
+	thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	tr { border: 1px solid #ccc; }
+	
+	td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; 
+	}
+
+	td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+		/* Label the data */
+		content: attr(data-column);
+
+		color: #000;
+		font-weight: bold;
+	}
 
 }

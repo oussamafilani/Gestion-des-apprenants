@@ -1,3 +1,5 @@
+
+
 // Seance Form Validation
 document.forms["absencesForm"].addEventListener("submit",function(e){
     let erreur;
@@ -21,3 +23,7 @@ document.forms["absencesForm"].addEventListener("submit",function(e){
         return false;
     }
 })
+
+
+
+

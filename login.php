@@ -46,6 +46,7 @@ if (isset($_POST['login'])) {
 
   <!-- ===== CSS ===== -->
   <link rel="stylesheet" href="sass/login.css" />
+  <link rel="stylesheet" href="sass/regex.css" />
 
   <title>Academy Code - login</title>
 </head>
@@ -72,9 +73,11 @@ if (isset($_POST['login'])) {
           <hr />
           <label for="user">Username</label>
           <input class="" name="user" placeholder="Username" type="text" id="user" value="" />
+          <p>Username must be and contain 1 - 3 characters</p>
 
           <label for="pass">Password</label>
           <input class="" name="pass" placeholder="Password" type="password" id="pass" value="" />
+          <p>Password must alphanumeric (@, _ and - are also allowed) and be 8 - 20 characters</p>
 
           <input name="login" type="submit" value="login" />
         </form>
@@ -88,6 +91,7 @@ if (isset($_POST['login'])) {
   <!--===== MAIN JS =====-->
   <script src="js/main.js"></script>
   <script src="js/login.js"></script>
+  <script src="js/regexlogin.js"></script>
 </body>
 
 </html>

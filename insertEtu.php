@@ -49,6 +49,7 @@ if (isset($_POST['ajouter'])) {
 
   <!-- ===== CSS ===== -->
   <link rel="stylesheet" href="sass/insertEtu.css" />
+  <link rel="stylesheet" href="sass/regex.css" />
 
   <title>Ajout Etudiant</title>
 </head>
@@ -124,12 +125,15 @@ if (isset($_POST['ajouter'])) {
       <h2>Creation d'un compte etudiant</h2>
       <label for="pseudo">Pseudo *</label>
       <input name="pseudo" placeholder="Pseudo" type="text" class="validetu" value="" />
+      <p>Username must be and contain 1 - 3 characters</p>
 
       <label for="password">Password *</label>
       <input name="password" class="form-control" placeholder="Password" type="password" class="validetu" value="" />
+      <p>Password must alphanumeric (@, _ and - are also allowed) and be 8 - 20 characters</p>
 
       <label for="cpassword">Confirm Password *</label>
       <input class="form-control" name="cpassword" placeholder="Confirm Password" type="password" class="validetu" value="" />
+      <p>Password must alphanumeric (@, _ and - are also allowed) and be 8 - 20 characters</p>
 
       <label for="cne">CNE *</label>
       <input name="cne" placeholder="CNE" type="text" class="validetu" value="" />
@@ -151,9 +155,11 @@ if (isset($_POST['ajouter'])) {
 
       <label for="email">Email *</label>
       <input name="email" placeholder="Email" type="email" class="validetu" value="" />
+      <p>Email invalid, e.g. me@mydomain.com</p>
 
       <label for="phone">Telephone</label>
       <input name="phone" placeholder="Telephone" type="text" value="" />
+      <p>Telephone invalid</p>
 
       <input name="ajouter" type="submit" value="Ajouter" />
     </form>
@@ -164,6 +170,7 @@ if (isset($_POST['ajouter'])) {
   <!--===== MAIN JS =====-->
   <script src="js/main.js"></script>
   <script src="js/insertEtudiant.js"></script>
+  <script src="js/RegexInsertEtu.js"></script>
 </body>
 
 </html>

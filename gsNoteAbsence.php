@@ -14,9 +14,16 @@ $results_seance1  = mysqli_query($db, "SELECT seance.date_seance,module.intitule
 //   select seance.date_seance,module.intitule_module,seance.type_seance from seance inner join module on module.id_module = seance.fk_seance_module
 
 $results_module  = mysqli_query($db, "SELECT * FROM module WHERE fk_enseigne = '$fk_enseigne' ");
-$results_module1  = mysqli_query($db, "SELECT * FROM module WHERE fk_enseigne = '$fk_enseigne' ");
+
 $results_etudiant  = mysqli_query($db, "SELECT id_etudiant, nom_etu, prenom_etu FROM etudiant");
 $results_etudiant1  = mysqli_query($db, "SELECT id_etudiant, nom_etu, prenom_etu FROM etudiant");
+
+$results_absence = mysqli_query($db, "SELECT module.intitule_module,etudiant.nom_etu,etudiant.prenom_etu, seance.type_seance, seance.date_seance FROM absence,seance,etudiant,module
+WHERE module.id_module = seance.id_seance and etudiant.id_etudiant = absence.fk_etudiant and seance.id_seance = absence.fk_seance ");
+
+$results_note = mysqli_query($db, "SELECT module.intitule_module,note.note_module,etudiant.nom_etu,etudiant.prenom_etu FROM note
+INNER JOIN module on module.id_module = note.fk_module 
+INNER JOIN etudiant on etudiant.id_etudiant = note.fk_etudiant;");
 
 
 if (isset($_POST['ajouter'])) {
@@ -148,27 +155,30 @@ if (isset($_POST['ajouter'])) {
     </h2>
     <thead>
       <tr>
-        <th class="cut-col">Module</th>
         <th>Nom d'étudiant</th>
         <th>Module</th>
+        <th>Type Seance</th>
         <th>date</th>
         <th>Modifier</th>
         <th>Supprimer</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td data-column="">oussama filani</td>
-        <td data-column="Date">javascript</td>
-        <td data-column="Date">2021-03-03</td>
-        <td class="cut-col" data-column="Type">TP</td>
-        <td data-column="Modifier">
-          <i class="fas fa-edit table-edit-icon"></i>
-        </td>
-        <td data-column="Supprimer">
-          <i class="fas fa-trash table-trash-icon"></i>
-        </td>
-      </tr>
+      <?php while ($row = mysqli_fetch_array($results_absence)) { ?>
+        <tr>
+          <td data-column=""><?php echo $row['nom_etu'] . " " . $row['prenom_etu']; ?></td>
+          <td data-column=""><?php echo $row['intitule_module']; ?></td>
+          <td data-column=""><?php echo $row['type_seance']; ?></td>
+          <td data-column=""><?php echo $row['date_seance']; ?></td>
+
+          <td data-column="Modifier">
+            <i class="fas fa-edit table-edit-icon"></i>
+          </td>
+          <td data-column="Supprimer">
+            <i class="fas fa-trash table-trash-icon"></i>
+          </td>
+        </tr>
+      <?php } ?>
 
     </tbody>
   </table>
@@ -179,7 +189,7 @@ if (isset($_POST['ajouter'])) {
 
       <label for="module">Module *</label>
       <select name="module" id="">
-        <?php while ($row = mysqli_fetch_array($results_module1)) { ?>
+        <?php while ($row = mysqli_fetch_array($results_module)) { ?>
           <option value="<?php echo $row['id_module']; ?>"><?php echo $row['intitule_module']; ?></option>
         <?php } ?>
       </select>
@@ -213,65 +223,21 @@ if (isset($_POST['ajouter'])) {
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td class="cut-col" data-column="JS">Javascript</td>
-        <td data-column="note">15/20</td>
-        <td class="cut-col" data-column="Nom">Oussama Filani</td>
-        <td data-column="Modifier">
-          <i class="fas fa-edit table-edit-icon"></i>
-        </td>
-        <td data-column="Supprimer">
-          <i class="fas fa-trash table-trash-icon"></i>
-        </td>
-      </tr>
+      <?php while ($row = mysqli_fetch_array($results_note)) { ?>
+        <tr>
+          <td data-column=""><?php echo $row['note_module']; ?></td>
+          <td data-column=""><?php echo $row['intitule_module']; ?></td>
+          <td data-column=""><?php echo $row['nom_etu'] . " " . $row['prenom_etu']; ?></td>
+          <td data-column="Modifier">
+            <i class="fas fa-edit table-edit-icon"></i>
+          </td>
+          <td data-column="Supprimer">
+            <i class="fas fa-trash table-trash-icon"></i>
+          </td>
+        </tr>
+      <?php } ?>
 
-      <tr>
-        <td class="cut-col" data-column="JS">Javascript</td>
-        <td data-column="note">16/20</td>
-        <td class="cut-col" data-column="Nom">Yassine hobi</td>
-        <td data-column="Modifier">
-          <i class="fas fa-edit table-edit-icon"></i>
-        </td>
-        <td data-column="Supprimer">
-          <i class="fas fa-trash table-trash-icon"></i>
-        </td>
-      </tr>
 
-      <tr>
-        <td class="cut-col" data-column="JS">Javascript</td>
-        <td data-column="note">17/20</td>
-        <td class="cut-col" data-column="Nom">Youssef zouhaili</td>
-        <td data-column="Modifier">
-          <i class="fas fa-edit table-edit-icon"></i>
-        </td>
-        <td data-column="Supprimer">
-          <i class="fas fa-trash table-trash-icon"></i>
-        </td>
-      </tr>
-
-      <tr>
-        <td class="cut-col" data-column="JS">Javascript</td>
-        <td data-column="note">18/20</td>
-        <td class="cut-col" data-column="Nom">Othmane Moussatef</td>
-        <td data-column="Modifier">
-          <i class="fas fa-edit table-edit-icon"></i>
-        </td>
-        <td data-column="Supprimer">
-          <i class="fas fa-trash table-trash-icon"></i>
-        </td>
-      </tr>
-
-      <tr>
-        <td class="cut-col" data-column="JS">Javascript</td>
-        <td data-column="note">19/20</td>
-        <td class="cut-col" data-column="Nom">Rafik tazi</td>
-        <td data-column="Modifier">
-          <i class="fas fa-edit table-edit-icon"></i>
-        </td>
-        <td data-column="Supprimer">
-          <i class="fas fa-trash table-trash-icon"></i>
-        </td>
-      </tr>
     </tbody>
   </table>
 

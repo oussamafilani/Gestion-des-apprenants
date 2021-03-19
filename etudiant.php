@@ -5,9 +5,22 @@ session_start();
 // Include connect file
 require_once "connect.php";
 
-$id = $_SESSION['id'];
+$id = $_SESSION['id_user'];
+
 
 $results  = mysqli_query($db, "SELECT * FROM etudiant where fk_user = '$id'");
+$results_1  = mysqli_query($db, "SELECT * FROM etudiant where fk_user = '$id'");
+$data =  $results_1->fetch_assoc();
+$id_etu = $data['id_etudiant'];
+
+
+$results_note  = mysqli_query($db, "SELECT module.intitule_module,note.note_module FROM module,note,etudiant
+WHERE module.id_module = note.fk_module and etudiant.id_etudiant = note.fk_etudiant and etudiant.id_etudiant = '$id_etu'");
+
+$results_abs  = mysqli_query($db, "SELECT module.intitule_module,seance.date_seance,seance.heure_debut,seance.heure_fin,seance.type_seance,absence.justifiee,absence.comm_abs
+FROM module,absence,seance,etudiant
+WHERE absence.fk_seance = seance.id_seance and absence.fk_etudiant = etudiant.id_etudiant
+and module.id_module = seance.fk_seance_module and etudiant.id_etudiant = '$id_etu'");
 
 ?>
 <!DOCTYPE html>
@@ -76,12 +89,12 @@ $results  = mysqli_query($db, "SELECT * FROM etudiant where fk_user = '$id'");
 
   <!-- start Cart etudiant -->
   <?php while ($row = mysqli_fetch_array($results)) { ?>
-  <div class="title-sec"><?php  echo ucwords($row['prenom_etu']." ".$row['nom_etu']) ;?></div>
+    <div class="title-sec"><?php echo ucwords($row['prenom_etu'] . " " . $row['nom_etu']); ?></div>
 
-  <div class="etu-cart">
-    <div class="etu-avatar">
-      <img src="img/avatar/ETU1.jpg" alt="" />
-    </div>
+    <div class="etu-cart">
+      <div class="etu-avatar">
+        <img src="img/avatar/ETU1.jpg" alt="" />
+      </div>
       <div class="etu-content">
         <p><b>CNE : </b><?php echo $row['CNE']; ?></p>
         <p><b>Nom : </b><?php echo $row['nom_etu']; ?></p>
@@ -92,7 +105,7 @@ $results  = mysqli_query($db, "SELECT * FROM etudiant where fk_user = '$id'");
         <p><b>Email : </b><?php echo $row['email_etu']; ?></p>
         <p><b>Telephone : </b><?php echo $row['phone_etu']; ?></p>
       </div>
-  </div>
+    </div>
   <?php } ?>
 
   <!-- end Cart etudiant -->
@@ -109,22 +122,13 @@ $results  = mysqli_query($db, "SELECT * FROM etudiant where fk_user = '$id'");
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td data-column="Module">C++</td>
-        <td data-column="Note">16/20</td>
-      </tr>
-      <tr>
-        <td data-column="Module">HTML/CSS</td>
-        <td data-column="Note">12/20</td>
-      </tr>
-      <tr>
-        <td data-column="Module">javascript</td>
-        <td data-column="Note">17/20</td>
-      </tr>
-      <tr>
-        <td data-column="Module">Moyenne générale</td>
-        <td data-column="Note">15/20</td>
-      </tr>
+      <?php while ($row = mysqli_fetch_array($results_note)) { ?>
+        <tr>
+          <td data-column="Module"><?php echo $row['intitule_module']; ?></td>
+          <td data-column="Note"><?php echo $row['note_module']; ?></td>
+        </tr>
+      <?php } ?>
+
     </tbody>
   </table>
   <!-- end  Note Etudiant table -->
@@ -146,37 +150,23 @@ $results  = mysqli_query($db, "SELECT * FROM etudiant where fk_user = '$id'");
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td data-column="Module">C++</td>
-        <td data-column="Date de séance">03/02/2021</td>
-        <td data-column="Heure debut">9:00</td>
-        <td data-column="Heure fin">5:00</td>
-        <td data-column="Type seance">Cours</td>
-        <td data-column="Justifiée">Oui</td>
-        <td data-column="Commentaire">Lorem ipsum</td>
-      </tr>
-      <tr>
-        <td data-column="Module">HTML/CSS</td>
-        <td data-column="Date de séance">03/02/2021</td>
-        <td data-column="Heure debut">9:00</td>
-        <td data-column="Heure fin">5:00</td>
-        <td data-column="Type seance">Cours</td>
-        <td data-column="Justifiée">Oui</td>
-        <td data-column="Commentaire">Lorem ipsum</td>
-      </tr>
-      <tr>
-        <td data-column="Module">Javascript</td>
-        <td data-column="Date de séance">03/02/2021</td>
-        <td data-column="Heure debut">9:00</td>
-        <td data-column="Heure fin">5:00</td>
-        <td data-column="Type seance">Cours</td>
-        <td data-column="Justifiée">Oui</td>
-        <td data-column="Commentaire">Lorem ipsum</td>
-      </tr>
+
+      <?php while ($row = mysqli_fetch_array($results_abs)) { ?>
+        <tr>
+          <td data-column="Module"><?php echo $row['intitule_module']; ?></td>
+          <td data-column="Date de séance"><?php echo $row['date_seance']; ?></td>
+          <td data-column="Heure debut"><?php echo $row['heure_debut']; ?></td>
+          <td data-column="Heure fin"><?php echo $row['heure_fin']; ?></td>
+          <td data-column="Type seance"><?php echo $row['type_seance']; ?></td>
+          <td data-column="Justifiée"><?php echo $row['justifiee']; ?></td>
+          <td data-column="Commentaire"><?php echo $row['comm_abs']; ?></td>
+        </tr>
+      <?php } ?>
+
     </tbody>
   </table>
   </div>
-  <p style="text-align: center">Nombre total des absences : 3</p>
+  <!-- <p style="text-align: center">Nombre total des absences : 3</p> -->
   <!-- end  Absences Etudiant table -->
 
   <?php include 'footer.php' ?>

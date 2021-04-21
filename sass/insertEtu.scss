@@ -7,6 +7,17 @@
 @import 'footer';
 @import 'formStyle';
 
+.msg {
+  margin: 10px auto;
+  padding: 10px;
+  border-radius: 5px;
+  color: #3c763d;
+  background: #dff0d8;
+  border: 1px solid #3c763d;
+  width: 70%;
+  text-align: center;
+}
+
 
 .insert-etu-container{
   @extend %form-style;

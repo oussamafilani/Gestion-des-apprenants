@@ -1,14 +1,28 @@
 <?php
 
+// Initialize the session
+session_start();
+error_reporting(0);
+
+if ($_SESSION['id']) {
+
+  if ($_SESSION['access'] == 1) {
+    header("Location: enseignant.php");
+  } else if ($_SESSION['access'] == 0) {
+    header("Location: etudiant.php");
+  }
+}
+
+
 // Include connect file
 require_once "connect.php";
 
 if (isset($_POST['login'])) {
   $user = $_POST['user'];
-  $pass = $_POST['pass'];
+  $pass = md5($_POST['pass']);
 
 
-  $sql  = "SELECT * FROM user WHERE login = '$user' and password = '$pass'";
+  $sql  = "SELECT * FROM user WHERE (login = '$user' or email = '$user') and password = '$pass' ";
   $result = mysqli_query($db, $sql);
   $row = mysqli_fetch_array($result);
   $rows = mysqli_num_rows($result);
@@ -16,15 +30,17 @@ if (isset($_POST['login'])) {
     // Initialize the session
     session_start();
 
-    $_SESSION['id_user'] = $row['id_user'];
 
     if ($row['access'] == 1) {
-      // $_SESSION['id'] =  $row['id_user'];
+      $_SESSION['id'] =  $row['id_user'];
+      $_SESSION['access'] =  1;
 
       // Redirect user to index.php
       header("Location: enseignant.php");
     } else {
-      // $_SESSION['id'] = $row['id_user'];
+      $_SESSION['id'] = $row['id_user'];
+      $_SESSION['access'] =  0;
+
       header("Location: etudiant.php");
     }
   }
@@ -44,6 +60,8 @@ if (isset($_POST['login'])) {
   <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
 
+  <!-- ===== Normalize ===== -->
+  <link rel="stylesheet" href="sass/normalize.css" />
   <!-- ===== CSS ===== -->
   <link rel="stylesheet" href="sass/login.css" />
   <link rel="stylesheet" href="sass/regex.css" />
@@ -53,7 +71,6 @@ if (isset($_POST['login'])) {
 
 <body>
   <!-- start login -->
-
   <div class="logo-bg-display">
     <a href="index.php"><img src="img/logo/logo1.png" alt="" /></a>
   </div>

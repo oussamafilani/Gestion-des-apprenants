@@ -2,14 +2,28 @@
 // Initialize the session
 session_start();
 
+if (empty($_SESSION['id'])) {
+
+  header('Location:login.php');
+} else if ($_SESSION['access'] != 1) {
+  header("Location: etudiant.php");
+}
+
 // Include connect file
 require_once "connect.php";
 
-$fk_enseigne = $_SESSION['id_user'];
+$fk_enseigne = $_SESSION['id'];
 
 $results_seance  = mysqli_query($db, "SELECT * FROM seance WHERE fk_seance_enseignant = '$fk_enseigne'");
-$results_seance1  = mysqli_query($db, "SELECT seance.date_seance,module.intitule_module,seance.type_seance from seance inner join module on module.id_module = seance.fk_seance_module WHERE seance.fk_seance_enseignant = '$fk_enseigne'
-");
+$results_seance1  = mysqli_query($db, "SELECT module.intitule_module,etudiant.nom_etu,etudiant.prenom_etu, seance.type_seance, seance.date_seance from absence
+INNER JOIN seance on absence.fk_seance = seance.id_seance and seance.fk_seance_enseignant = '$fk_enseigne'
+INNER JOIN etudiant on absence.fk_etudiant = etudiant.id_etudiant
+INNER JOIN module on seance.fk_seance_module = module.id_module");
+
+// $results_seance1  = mysqli_query($db, "SELECT  seance.id_seance,seance.date_seance,module.intitule_module,seance.type_seance from seance inner join module on module.id_module = seance.fk_seance_module WHERE seance.fk_seance_enseignant = '$fk_enseigne'
+// ");
+// $results_seance1  = mysqli_query($db, "SELECT  seance.id_seance,seance.date_seance,module.intitule_module,seance.type_seance from seance inner join module on module.id_module = seance.fk_seance_module WHERE seance.fk_seance_enseignant = '$fk_enseigne'
+// ");
 
 //   select seance.date_seance,module.intitule_module,seance.type_seance from seance inner join module on module.id_module = seance.fk_seance_module
 
@@ -19,28 +33,12 @@ $results_etudiant  = mysqli_query($db, "SELECT id_etudiant, nom_etu, prenom_etu 
 $results_etudiant1  = mysqli_query($db, "SELECT id_etudiant, nom_etu, prenom_etu FROM etudiant");
 
 $results_absence = mysqli_query($db, "SELECT module.intitule_module,etudiant.nom_etu,etudiant.prenom_etu, seance.type_seance, seance.date_seance FROM absence,seance,etudiant,module
-WHERE module.id_module = seance.id_seance and etudiant.id_etudiant = absence.fk_etudiant and seance.id_seance = absence.fk_seance ");
+WHERE module.id_module = seance.id_seance and etudiant.id_etudiant = absence.fk_etudiant and seance.id_seance = absence.fk_seance  and  module.fk_enseigne = '$fk_enseigne' ");
+
 
 $results_note = mysqli_query($db, "SELECT module.intitule_module,note.note_module,etudiant.nom_etu,etudiant.prenom_etu FROM note
-INNER JOIN module on module.id_module = note.fk_module 
+INNER JOIN module on module.id_module = note.fk_module  and module.fk_enseigne = '$fk_enseigne'
 INNER JOIN etudiant on etudiant.id_etudiant = note.fk_etudiant;");
-
-
-if (isset($_POST['ajouter'])) {
-
-  $date_seance = $_POST['date_seance'];
-  $heure_d = $_POST['heure_d'];
-  $heure_f = $_POST['heure_f'];
-  $cours = $_POST['cours'];
-  $fk_module = $_POST['fk_module'];
-
-  $sql = "INSERT INTO seance (date_seance, heure_debut, heure_fin, type_seance, fk_seance_module, fk_seance_enseignant) VALUES ('$date_seance','$heure_d','$heure_f','$cours','$fk_module','$fk_enseigne')";
-
-  mysqli_query($db, $sql);
-
-  $_SESSION['message'] = "Seance saved";
-  header('location: insertSeance.php');
-}
 
 
 ?>
@@ -55,6 +53,8 @@ if (isset($_POST['ajouter'])) {
   <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
 
+  <!-- ===== Normalize ===== -->
+  <link rel="stylesheet" href="sass/normalize.css" />
   <!-- ===== CSS ===== -->
   <link rel="stylesheet" href="sass/gsNoteAbsence.css" />
 
@@ -73,7 +73,9 @@ if (isset($_POST['ajouter'])) {
       </a>
     </div>
     <div>
-      <button class="btn-log">Log Out</button>
+      <form action="logout.php">
+        <button class="btn-log">Log Out</button>
+      </form>
     </div>
   </header>
 
@@ -118,7 +120,7 @@ if (isset($_POST['ajouter'])) {
         </div>
       </div>
 
-      <a href="login.php" class="nav__link">
+      <a href="logout.php" class="nav__link">
         <i class="bx bx-log-out nav__icon"></i>
         <span class="nav__name">Log Out</span>
       </a>
@@ -127,24 +129,23 @@ if (isset($_POST['ajouter'])) {
 
   <!-- start insert etudiant -->
   <div class="insert-abs-container">
-    <form action="" name="absencesForm">
+    <form action="server.php" method="post" name="absencesForm">
       <h2>Gestion des absences</h2>
 
-
-      <label for="date_seance">Module/ Type Seance/ Date *</label>
-      <select name="date_seance" id="">
+      <label for="abs_id_seance">Module/ Type Seance/ Date *</label>
+      <select name="abs_id_seance" id="">
         <?php while ($row = mysqli_fetch_array($results_seance1)) { ?>
           <option value="<?php echo $row['id_seance']; ?>"><?php echo $row['intitule_module'] . " -- " . $row['type_seance'] . " -- " . $row['date_seance']; ?></option>
         <?php } ?>
       </select>
-      <label for="ename">Nom d'étudiant *</label>
-      <select name="ename" id="">
+      <label for="abs_id_etudiant">Nom d'étudiant *</label>
+      <select name="abs_id_etudiant" id="">
         <?php while ($row = mysqli_fetch_array($results_etudiant)) { ?>
           <option value="<?php echo $row['id_etudiant']; ?>"><?php echo $row['nom_etu'] . " " . $row['prenom_etu']; ?></option>
         <?php } ?>
       </select>
 
-      <input id="btn" name="submit" type="submit" value="Ajouter" />
+      <input id="btn" name="ajouterabsences" type="submit" value="Ajouter" />
     </form>
     <p style="color: red; text-align: center" id="erreur"></p>
   </div>
@@ -184,27 +185,27 @@ if (isset($_POST['ajouter'])) {
   </table>
 
   <div class="insert-note-container">
-    <form action="gsNoteAbsence.php" method="post" name="NoteForm">
+    <form action="server.php" method="post" name="NoteForm">
       <h2>Gestion des notes</h2>
 
-      <label for="module">Module *</label>
-      <select name="module" id="">
+      <label for="nt_module">Module *</label>
+      <select name="nt_module" id="">
         <?php while ($row = mysqli_fetch_array($results_module)) { ?>
           <option value="<?php echo $row['id_module']; ?>"><?php echo $row['intitule_module']; ?></option>
         <?php } ?>
       </select>
 
-      <label for="ename">Nom d'étudiant *</label>
-      <select name="ename" id="">
+      <label for="nt_id_etudiant">Nom d'étudiant *</label>
+      <select name="nt_id_etudiant" id="">
         <?php while ($row = mysqli_fetch_array($results_etudiant1)) { ?>
           <option value="<?php echo $row['id_etudiant']; ?>"><?php echo $row['nom_etu'] . " " . $row['prenom_etu']; ?></option>
         <?php } ?>
       </select>
 
       <label for="note">Note *</label>
-      <input value="" placeholder="xx/20" type="text">
+      <input name="nt_note" value="" placeholder="xx/20" type="number" min="0" max="20">
 
-      <input id="btn" name="submit" type="submit" value="Ajouter" />
+      <input id="btn" name="ajouternote" type="submit" value="Ajouter" />
     </form>
     <p style="color: red; text-align: center" id="erreur2"></p>
   </div>
@@ -215,9 +216,9 @@ if (isset($_POST['ajouter'])) {
     </h2>
     <thead>
       <tr>
-        <th class="cut-col">Module</th>
-        <th>Note</th>
         <th>Nom d'étudiant</th>
+        <th>Module</th>
+        <th>Note</th>
         <th>Modifier</th>
         <th>Supprimer</th>
       </tr>
@@ -225,9 +226,9 @@ if (isset($_POST['ajouter'])) {
     <tbody>
       <?php while ($row = mysqli_fetch_array($results_note)) { ?>
         <tr>
-          <td data-column=""><?php echo $row['note_module']; ?></td>
-          <td data-column=""><?php echo $row['intitule_module']; ?></td>
           <td data-column=""><?php echo $row['nom_etu'] . " " . $row['prenom_etu']; ?></td>
+          <td data-column=""><?php echo $row['intitule_module']; ?></td>
+          <td data-column=""><?php echo $row['note_module']; ?></td>
           <td data-column="Modifier">
             <i class="fas fa-edit table-edit-icon"></i>
           </td>

@@ -2,10 +2,17 @@
 // Initialize the session
 session_start();
 
+if (empty($_SESSION['id'])) {
+
+  header('Location:login.php');
+} else if ($_SESSION['access'] != 1) {
+  header("Location: etudiant.php");
+}
+
 // Include connect file
 require_once "connect.php";
 
-$fk_enseigne = $_SESSION['id_user'];
+$fk_enseigne = $_SESSION['id'];
 
 $results  = mysqli_query($db, "SELECT * FROM module WHERE fk_enseigne = '$fk_enseigne' ");
 
@@ -16,7 +23,7 @@ if (isset($_POST['ajouter'])) {
   $sql = "INSERT INTO module (intitule_module,fk_enseigne) VALUES ('$module','$fk_enseigne')";
   mysqli_query($db, $sql);
 
-  $_SESSION['message'] = "Module saved";
+  // $_SESSION['message'] = "Module saved";
   header('location: insertModule.php');
 }
 
@@ -33,6 +40,8 @@ if (isset($_POST['ajouter'])) {
   <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
 
+  <!-- ===== Normalize ===== -->
+  <link rel="stylesheet" href="sass/normalize.css" />
   <!-- ===== CSS ===== -->
   <link rel="stylesheet" href="sass/insertModule.css" />
 
@@ -51,7 +60,9 @@ if (isset($_POST['ajouter'])) {
       </a>
     </div>
     <div>
-      <button class="btn-log">Log Out</button>
+      <form action="logout.php">
+        <button class="btn-log">Log Out</button>
+      </form>
     </div>
   </header>
 
@@ -96,7 +107,7 @@ if (isset($_POST['ajouter'])) {
         </div>
       </div>
 
-      <a href="login.php" class="nav__link">
+      <a href="logout.php" class="nav__link">
         <i class="bx bx-log-out nav__icon"></i>
         <span class="nav__name">Log Out</span>
       </a>

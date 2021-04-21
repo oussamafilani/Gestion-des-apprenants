@@ -339,6 +339,17 @@ tr, td {
   background-color: var(--first-color-hover);
 }
 
+.msg {
+  margin: 10px auto;
+  padding: 10px;
+  border-radius: 5px;
+  color: #3c763d;
+  background: #dff0d8;
+  border: 1px solid #3c763d;
+  width: 70%;
+  text-align: center;
+}
+
 @media screen and (max-width: 800px) {
   .insert-etu-container {
     width: 100%;

@@ -1,6 +1,6 @@
 // validation script here
 const inp_field = {
-    pseudo: /^[a-z\d]{1,3}$/i,
+    pseudo: /^[a-z\d]{3,12}$/i,
     email: /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/,
     password: /^[a-zA-Z\d]{8,20}$/,
     cpassword: /^[a-zA-Z\d]{8,20}$/,

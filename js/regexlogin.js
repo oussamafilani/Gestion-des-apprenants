@@ -1,7 +1,7 @@
 // validation script here
 const inp_field = {
-    user: /^[a-z\d]{1,3}$/i,
-    pass: /^[a-zA-Z\d]{8,20}$/,
+    user: /^[a-zA-Z\d]{3,20}$/i,
+    pass: /^[a-zA-Z\d]{3,20}$/,
     
   }
   

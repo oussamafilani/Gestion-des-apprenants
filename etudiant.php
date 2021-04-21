@@ -2,16 +2,34 @@
 // Initialize the session
 session_start();
 
+if (empty($_SESSION['id'])) {
+
+  header('Location:login.php');
+} else if ($_SESSION['access'] != 0) {
+  header("Location: enseignant.php");
+}
+
+// if (!session_id()) {
+
+//   header('Location:login.php');
+// }
+
+
+
 // Include connect file
 require_once "connect.php";
 
-$id = $_SESSION['id_user'];
+$id = $_SESSION['id'];
+
+// echo session_id();
+// echo $_SESSION['id'];
 
 
 $results  = mysqli_query($db, "SELECT * FROM etudiant where fk_user = '$id'");
 $results_1  = mysqli_query($db, "SELECT * FROM etudiant where fk_user = '$id'");
 $data =  $results_1->fetch_assoc();
 $id_etu = $data['id_etudiant'];
+// echo $id_etu;
 
 
 $results_note  = mysqli_query($db, "SELECT module.intitule_module,note.note_module FROM module,note,etudiant
@@ -34,6 +52,8 @@ and module.id_module = seance.fk_seance_module and etudiant.id_etudiant = '$id_e
   <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
 
+  <!-- ===== Normalize ===== -->
+  <link rel="stylesheet" href="sass/normalize.css" />
   <!-- ===== CSS ===== -->
   <link rel="stylesheet" href="sass/etudiant.css" />
 
@@ -55,6 +75,9 @@ and module.id_module = seance.fk_seance_module and etudiant.id_etudiant = '$id_e
       <form action="logout.php">
         <button class="btn-log">Log Out</button>
       </form>
+      <!-- <a href="logout.php">
+        <button class="btn-log">Log Out</button>
+      </a> -->
     </div>
   </header>
 
@@ -80,7 +103,7 @@ and module.id_module = seance.fk_seance_module and etudiant.id_etudiant = '$id_e
         </div>
       </div>
 
-      <a href="#" class="nav__link">
+      <a href="logout.php" class="nav__link">
         <i class="bx bx-log-out nav__icon"></i>
         <span class="nav__name">Log Out</span>
       </a>

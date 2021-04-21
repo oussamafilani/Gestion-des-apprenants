@@ -2,31 +2,27 @@
 // Initialize the session
 session_start();
 
+if (empty($_SESSION['id'])) {
+
+    header('Location:login.php');
+} else if ($_SESSION['access'] != 1) {
+    header("Location: etudiant.php");
+}
+
 // Include connect file
 require_once "connect.php";
 
-
 ?>
 
 <?php
-$id = 0;
 
 if (isset($_GET['modifier'])) {
-    $id = $_GET['modifier'];
-
-    $results = mysqli_query($db, "SELECT * FROM etudiant WHERE id_etudiant = '$id'");
-    $_SESSION['message'] = "Address Updated!";
-    $_SESSION['id_etudiant']  = $id;
+    $_SESSION['id_etudiant'] = $_GET['modifier'];
 }
+$id = $_SESSION['id_etudiant'];
+$results = mysqli_query($db, "SELECT * FROM etudiant WHERE id_etudiant = '$id'");
 ?>
 
-
-<?php
-if (($_SESSION['modif']) == 1) {
-    echo '<script>succes();</script>';
-    $_SESSION['modif'] = 0;
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,13 +33,8 @@ if (($_SESSION['modif']) == 1) {
     <!-- ===== BOX ICONS ===== -->
     <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
-
-    <!-- ===== CSS ===== -->
-    <link rel="stylesheet" href="sass/insertEtu.css" />
-
-    <title>Modification Etudiant</title>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
-        
         function succes() {
             swal({
                 title: "Modification pass avec succes!",
@@ -53,6 +44,14 @@ if (($_SESSION['modif']) == 1) {
             });
         }
     </script>
+
+    <!-- ===== Normalize ===== -->
+    <link rel="stylesheet" href="sass/normalize.css" />
+    <!-- ===== CSS ===== -->
+    <link rel="stylesheet" href="sass/insertEtu.css" />
+
+    <title>Modification Etudiant</title>
+
 </head>
 
 <body id="body-pd">
@@ -68,7 +67,9 @@ if (($_SESSION['modif']) == 1) {
             </a>
         </div>
         <div>
-            <button class="btn-log">Log Out</button>
+            <form action="logout.php">
+                <button class="btn-log">Log Out</button>
+            </form>
         </div>
     </header>
 
@@ -113,13 +114,29 @@ if (($_SESSION['modif']) == 1) {
                 </div>
             </div>
 
-            <a href="login.php" class="nav__link">
+            <a href="logout.php" class="nav__link">
                 <i class="bx bx-log-out nav__icon"></i>
                 <span class="nav__name">Log Out</span>
             </a>
         </nav>
     </div>
 
+    <?php if (isset($_SESSION['message'])) : ?>
+        <div class="msg">
+            <?php
+            echo $_SESSION['message'];
+            unset($_SESSION['message']);
+            ?>
+        </div>
+    <?php endif ?>
+
+    <?php
+    error_reporting(0);
+    if (($_SESSION['modif']) == 1) {
+        echo "<script>succes();</script>";
+        $_SESSION['modif'] = 0;
+    }
+    ?>
 
 
     <!-- start insert etudiant -->

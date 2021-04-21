@@ -2,6 +2,14 @@
 // Initialize the session
 session_start();
 
+if (empty($_SESSION['id'])) {
+
+  header('Location:login.php');
+} else if ($_SESSION['access'] != 1) {
+  header("Location: etudiant.php");
+}
+
+
 // Include connect file
 require_once "connect.php";
 
@@ -22,11 +30,21 @@ $results  = mysqli_query($db, "SELECT * FROM etudiant");
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-
+  <!-- ===== Normalize ===== -->
+  <link rel="stylesheet" href="sass/normalize.css" />
   <!-- ===== CSS ===== -->
   <link rel="stylesheet" href="sass/enseignant.css" />
 
-  <title>Sidebar menu responsive</title>
+  <title>Academy Code</title>
+  <script>
+    function suppr() {
+      swal({
+        title: "Suppression pass avec succes!",
+        icon: "error",
+        button: "Continue!",
+      });
+    }
+  </script>
 </head>
 
 <body id="body-pd">
@@ -41,7 +59,9 @@ $results  = mysqli_query($db, "SELECT * FROM etudiant");
       </a>
     </div>
     <div>
-      <button class="btn-log">Log Out</button>
+      <form action="logout.php">
+        <button class="btn-log">Log Out</button>
+      </form>
     </div>
   </header>
 
@@ -86,12 +106,29 @@ $results  = mysqli_query($db, "SELECT * FROM etudiant");
         </div>
       </div>
 
-      <a href="login.php" class="nav__link">
+      <a href="logout.php" class="nav__link">
         <i class="bx bx-log-out nav__icon"></i>
         <span class="nav__name">Log Out</span>
       </a>
     </nav>
   </div>
+
+  <?php if (isset($_SESSION['message'])) : ?>
+    <div class="msg">
+      <?php
+      echo $_SESSION['message'];
+      unset($_SESSION['message']);
+      ?>
+    </div>
+  <?php endif ?>
+
+  <?php
+  error_reporting(0);
+  if (($_SESSION['dell']) == 1) {
+    echo "<script>suppr();</script>";
+    $_SESSION['dell'] = 0;
+  }
+  ?>
 
   <!-- Start Etudiant table -->
   <table style="overflow-x: auto">

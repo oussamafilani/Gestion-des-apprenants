@@ -2,12 +2,19 @@
 // Initialize the session
 session_start();
 
+if (empty($_SESSION['id'])) {
+
+  header('Location:login.php');
+} else if ($_SESSION['access'] != 1) {
+  header("Location: etudiant.php");
+}
+
 // Include connect file
 require_once "connect.php";
 
 if (isset($_POST['ajouter'])) {
   $pseudo = $_POST['pseudo'];
-  $password = $_POST['password'];
+  $password = md5($_POST['password']);
   $access = 0;
 
   $cne = $_POST['cne'];
@@ -18,8 +25,25 @@ if (isset($_POST['ajouter'])) {
   $ville = $_POST['ville'];
   $email = $_POST['email'];
   $phone = $_POST['phone'];
+  ///////////////////////
 
-  $sql = "INSERT INTO user (login, password, access) VALUES ('$pseudo', '$password', '$access')";
+  // echo $pseudo;
+  // echo '<br>';
+  // echo $password;
+  // echo '<br>';
+  // echo $access;
+  // echo '<br>';
+  // echo  $email;
+  // echo $cne;
+  // echo $fname;
+  // echo $lname;
+  // echo $date_naiss;
+  // echo $adrs;
+  // echo $ville;
+  // echo $email;
+  // echo $phone;
+
+  $sql = "INSERT INTO user (login, password, access, email) VALUES ('$pseudo', '$password', '$access', '$email')";
   mysqli_query($db, $sql);
 
   $sql_1 = "SELECT * FROM user WHERE login = '$pseudo'";
@@ -27,10 +51,13 @@ if (isset($_POST['ajouter'])) {
   $row = mysqli_fetch_array($result);
   $fk_user = $row['id_user'];
 
+  // echo '<br>';
+  // echo $fk_user;
+
   $sql_2 = "INSERT INTO etudiant (CNE, nom_etu, prenom_etu, date_naiss_etu, adresse_etu, ville_etu, email_etu, phone_etu, fk_user) VALUES ('$cne', '$lname', '$fname', '$date_naiss', '$adrs', '$ville', '$email', '$phone', '$fk_user')";
   mysqli_query($db, $sql_2);
 
-  $_SESSION['message'] = "Etudiant saved";
+  // $_SESSION['message'] = "Etudiant saved";
   header('location: insertEtu.php');
 }
 
@@ -47,6 +74,8 @@ if (isset($_POST['ajouter'])) {
   <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
 
+  <!-- ===== Normalize ===== -->
+  <link rel="stylesheet" href="sass/normalize.css" />
   <!-- ===== CSS ===== -->
   <link rel="stylesheet" href="sass/insertEtu.css" />
   <link rel="stylesheet" href="sass/regex.css" />
@@ -67,7 +96,9 @@ if (isset($_POST['ajouter'])) {
       </a>
     </div>
     <div>
-      <button class="btn-log">Log Out</button>
+      <form action="logout.php">
+        <button class="btn-log">Log Out</button>
+      </form>
     </div>
   </header>
 
@@ -112,7 +143,7 @@ if (isset($_POST['ajouter'])) {
         </div>
       </div>
 
-      <a href="login.php" class="nav__link">
+      <a href="logout.php" class="nav__link">
         <i class="bx bx-log-out nav__icon"></i>
         <span class="nav__name">Log Out</span>
       </a>
